@@ -41,7 +41,7 @@ awesome_lists = [
 enabled = true
 
 # Max repos to summarize per run (0 = unlimited). Useful for cost control.
-batch_limit = 100
+batch_limit = 1000
 
 # Writing tone: "technical", "casual", "beginner-friendly", or any custom string
 tone = "technical"
