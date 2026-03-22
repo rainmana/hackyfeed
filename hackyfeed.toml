@@ -59,6 +59,10 @@ max_readme_chars = 4000
 [categories]
 # Keyword-based auto-categorization. Keys are category names, values are keyword lists.
 # A repo is assigned a category if any keyword matches its topics, description, or name.
+
+# Default category when no keywords match
+default_category = "security-tools"
+
 [categories.rules]
 exploit = ["exploit", "cve", "vulnerability", "0day"]
 red-team = ["red-team", "redteam", "c2", "command-and-control", "cobalt"]
@@ -74,6 +78,3 @@ post-exploitation = ["post-exploitation", "lateral-movement", "persistence"]
 cryptography = ["crypto", "encrypt", "decrypt", "cipher"]
 forensics = ["forensic", "dfir", "incident-response"]
 cloud-security = ["cloud-security", "aws-security", "azure-security"]
-
-# Default category when no keywords match
-default_category = "security-tools"
