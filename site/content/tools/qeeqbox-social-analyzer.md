@@ -2,12 +2,12 @@
 title: "social-analyzer"
 date: 2026-03-22
 categories:
-  - osint
   - pentesting
+  - osint
 tags:
   - javascript
 github_url: "https://github.com/qeeqbox/social-analyzer"
-stars: 22250
+stars: 22252
 language: "JavaScript"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

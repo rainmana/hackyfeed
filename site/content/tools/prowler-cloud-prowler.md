@@ -6,7 +6,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/prowler-cloud/prowler"
-stars: 13376
+stars: 13377
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

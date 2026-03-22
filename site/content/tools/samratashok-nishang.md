@@ -2,8 +2,8 @@
 title: "nishang"
 date: 2026-03-22
 categories:
-  - red-team
   - malware
+  - red-team
   - pentesting
 tags:
   - powershell

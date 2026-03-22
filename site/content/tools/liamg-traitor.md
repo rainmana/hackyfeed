@@ -2,8 +2,8 @@
 title: "traitor"
 date: 2026-03-22
 categories:
-  - exploit
   - privilege-escalation
+  - exploit
   - red-team
 tags:
   - go

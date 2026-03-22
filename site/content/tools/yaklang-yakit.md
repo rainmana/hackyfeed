@@ -3,10 +3,10 @@ title: "yakit"
 date: 2026-03-22
 categories:
   - red-team
-  - exploit
   - pentesting
-  - scanner
   - web-security
+  - exploit
+  - scanner
 tags:
   - typescript
 github_url: "https://github.com/yaklang/yakit"

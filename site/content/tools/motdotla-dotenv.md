@@ -6,7 +6,7 @@ categories:
 tags:
   - javascript
 github_url: "https://github.com/motdotla/dotenv"
-stars: 20335
+stars: 20336
 language: "JavaScript"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

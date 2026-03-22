@@ -2,10 +2,10 @@
 title: "sqlmap"
 date: 2026-03-22
 categories:
-  - exploit
   - pentesting
-  - scanner
   - web-security
+  - exploit
+  - scanner
 tags:
   - python
 github_url: "https://github.com/sqlmapproject/sqlmap"

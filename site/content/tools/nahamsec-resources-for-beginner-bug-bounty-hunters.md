@@ -2,8 +2,8 @@
 title: "Resources-for-Beginner-Bug-Bounty-Hunters"
 date: 2026-03-22
 categories:
-  - web-security
   - pentesting
+  - web-security
 
 github_url: "https://github.com/nahamsec/Resources-for-Beginner-Bug-Bounty-Hunters"
 stars: 11908

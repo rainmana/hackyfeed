@@ -2,9 +2,9 @@
 title: "xray"
 date: 2026-03-22
 categories:
+  - scanner
   - web-security
   - exploit
-  - scanner
 tags:
   - vue
 github_url: "https://github.com/chaitin/xray"

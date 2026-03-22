@@ -2,9 +2,9 @@
 title: "Osintgram"
 date: 2026-03-22
 categories:
-  - pentesting
   - osint
   - malware
+  - pentesting
 tags:
   - python
 github_url: "https://github.com/Datalux/Osintgram"

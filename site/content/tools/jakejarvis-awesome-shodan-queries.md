@@ -2,10 +2,10 @@
 title: "awesome-shodan-queries"
 date: 2026-03-22
 categories:
-  - pentesting
   - scanner
   - malware
   - network
+  - pentesting
 
 github_url: "https://github.com/jakejarvis/awesome-shodan-queries"
 stars: 7282

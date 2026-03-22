@@ -2,8 +2,8 @@
 title: "osv-scanner"
 date: 2026-03-22
 categories:
-  - scanner
   - exploit
+  - scanner
 tags:
   - go
 github_url: "https://github.com/google/osv-scanner"

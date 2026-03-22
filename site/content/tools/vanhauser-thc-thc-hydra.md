@@ -2,9 +2,9 @@
 title: "thc-hydra"
 date: 2026-03-22
 categories:
-  - pentesting
   - malware
   - network
+  - pentesting
 tags:
   - c
 github_url: "https://github.com/vanhauser-thc/thc-hydra"

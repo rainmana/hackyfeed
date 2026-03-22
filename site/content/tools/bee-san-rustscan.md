@@ -2,13 +2,13 @@
 title: "RustScan"
 date: 2026-03-22
 categories:
+  - scanner
   - network
   - pentesting
-  - scanner
 tags:
   - rust
 github_url: "https://github.com/bee-san/RustScan"
-stars: 19482
+stars: 19483
 language: "Rust"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

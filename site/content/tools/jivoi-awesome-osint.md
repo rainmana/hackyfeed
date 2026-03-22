@@ -6,7 +6,7 @@ categories:
   - osint
 
 github_url: "https://github.com/jivoi/awesome-osint"
-stars: 25409
+stars: 25410
 language: ""
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

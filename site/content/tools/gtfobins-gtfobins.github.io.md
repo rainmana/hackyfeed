@@ -2,10 +2,10 @@
 title: "GTFOBins.github.io"
 date: 2026-03-22
 categories:
-  - exploit
+  - malware
   - post-exploitation
   - red-team
-  - malware
+  - exploit
 tags:
   - yaml
 github_url: "https://github.com/GTFOBins/GTFOBins.github.io"

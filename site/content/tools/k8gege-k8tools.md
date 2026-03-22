@@ -3,8 +3,8 @@ title: "K8tools"
 date: 2026-03-22
 categories:
   - exploit
-  - pentesting
   - scanner
+  - pentesting
   - privilege-escalation
 tags:
   - powershell

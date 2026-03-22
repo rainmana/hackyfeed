@@ -6,7 +6,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/MatrixTM/MHDDoS"
-stars: 15672
+stars: 15673
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

@@ -6,7 +6,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/mrexodia/ida-pro-mcp"
-stars: 6586
+stars: 6587
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

@@ -2,14 +2,14 @@
 title: "hexstrike-ai"
 date: 2026-03-22
 categories:
-  - malware
   - exploit
-  - pentesting
   - osint
+  - malware
+  - pentesting
 tags:
   - python
 github_url: "https://github.com/0x4m4/hexstrike-ai"
-stars: 7604
+stars: 7605
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

@@ -2,9 +2,9 @@
 title: "maigret"
 date: 2026-03-22
 categories:
+  - red-team
   - pentesting
   - osint
-  - red-team
   - network
 tags:
   - python

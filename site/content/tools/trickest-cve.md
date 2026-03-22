@@ -2,14 +2,14 @@
 title: "cve"
 date: 2026-03-22
 categories:
-  - red-team
   - malware
-  - exploit
+  - red-team
   - pentesting
+  - exploit
 tags:
   - html
 github_url: "https://github.com/trickest/cve"
-stars: 7624
+stars: 7625
 language: "HTML"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

@@ -2,9 +2,9 @@
 title: "wazuh"
 date: 2026-03-22
 categories:
+  - exploit
   - malware
   - forensics
-  - exploit
   - cloud-security
 tags:
   - c++
