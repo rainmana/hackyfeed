@@ -2,11 +2,11 @@
 title: "Penetration_Testing_POC"
 date: 2026-03-22
 categories:
-  - exploit
-  - malware
-  - red-team
-  - pentesting
   - web-security
+  - red-team
+  - exploit
+  - pentesting
+  - malware
 tags:
   - html
 github_url: "https://github.com/Mr-xn/Penetration_Testing_POC"

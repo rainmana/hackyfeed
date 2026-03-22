@@ -2,8 +2,8 @@
 title: "my-arsenal-of-aws-security-tools"
 date: 2026-03-22
 categories:
-  - forensics
   - cloud-security
+  - forensics
 tags:
   - shell
 github_url: "https://github.com/toniblyx/my-arsenal-of-aws-security-tools"

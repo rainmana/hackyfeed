@@ -6,7 +6,7 @@ categories:
 tags:
   - go
 github_url: "https://github.com/gitleaks/gitleaks"
-stars: 25510
+stars: 25511
 language: "Go"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

@@ -3,8 +3,8 @@ title: "blackbird"
 date: 2026-03-22
 categories:
   - pentesting
-  - osint
   - network
+  - osint
 tags:
   - python
 github_url: "https://github.com/p1ngul1n0/blackbird"

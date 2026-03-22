@@ -2,10 +2,10 @@
 title: "wazuh"
 date: 2026-03-22
 categories:
+  - cloud-security
   - exploit
   - malware
   - forensics
-  - cloud-security
 tags:
   - c++
 github_url: "https://github.com/wazuh/wazuh"

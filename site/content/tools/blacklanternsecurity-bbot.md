@@ -2,8 +2,8 @@
 title: "bbot"
 date: 2026-03-22
 categories:
-  - malware
   - pentesting
+  - malware
   - osint
   - scanner
 tags:

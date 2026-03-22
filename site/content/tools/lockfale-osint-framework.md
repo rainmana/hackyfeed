@@ -6,7 +6,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/lockfale/OSINT-Framework"
-stars: 11066
+stars: 11065
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

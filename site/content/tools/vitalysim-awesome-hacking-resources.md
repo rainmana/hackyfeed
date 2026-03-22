@@ -2,11 +2,11 @@
 title: "Awesome-Hacking-Resources"
 date: 2026-03-22
 categories:
-  - privilege-escalation
-  - exploit
   - reverse-engineering
   - malware
   - network
+  - privilege-escalation
+  - exploit
   - pentesting
 
 github_url: "https://github.com/vitalysim/Awesome-Hacking-Resources"

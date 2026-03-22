@@ -2,15 +2,15 @@
 title: "yakit"
 date: 2026-03-22
 categories:
-  - red-team
+  - scanner
+  - exploit
   - pentesting
   - web-security
-  - exploit
-  - scanner
+  - red-team
 tags:
   - typescript
 github_url: "https://github.com/yaklang/yakit"
-stars: 7122
+stars: 7120
 language: "TypeScript"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

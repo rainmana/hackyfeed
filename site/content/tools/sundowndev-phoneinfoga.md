@@ -6,7 +6,7 @@ categories:
 tags:
   - go
 github_url: "https://github.com/sundowndev/phoneinfoga"
-stars: 16074
+stars: 16075
 language: "Go"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

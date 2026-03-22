@@ -6,7 +6,7 @@ categories:
 tags:
   - typescript
 github_url: "https://github.com/juice-shop/juice-shop"
-stars: 12727
+stars: 12729
 language: "TypeScript"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

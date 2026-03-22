@@ -6,7 +6,7 @@ categories:
 tags:
   - javascript
 github_url: "https://github.com/calesthio/Crucix"
-stars: 6083
+stars: 6092
 language: "JavaScript"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

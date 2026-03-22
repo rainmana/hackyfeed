@@ -2,9 +2,9 @@
 title: "osmedeus"
 date: 2026-03-22
 categories:
-  - osint
-  - malware
   - pentesting
+  - malware
+  - osint
 tags:
   - go
 github_url: "https://github.com/j3ssie/osmedeus"

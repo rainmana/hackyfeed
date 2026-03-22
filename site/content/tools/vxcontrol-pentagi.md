@@ -7,7 +7,7 @@ categories:
 tags:
   - go
 github_url: "https://github.com/vxcontrol/pentagi"
-stars: 11115
+stars: 11148
 language: "Go"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

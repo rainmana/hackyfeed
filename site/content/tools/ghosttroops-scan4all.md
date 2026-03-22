@@ -2,9 +2,9 @@
 title: "scan4all"
 date: 2026-03-22
 categories:
-  - exploit
   - osint
   - scanner
+  - exploit
   - pentesting
 tags:
   - go

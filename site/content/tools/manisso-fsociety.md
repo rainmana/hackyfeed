@@ -2,12 +2,12 @@
 title: "fsociety"
 date: 2026-03-22
 categories:
-  - post-exploitation
-  - pentesting
-  - exploit
   - scanner
+  - exploit
+  - pentesting
   - malware
   - network
+  - post-exploitation
 tags:
   - python
 github_url: "https://github.com/Manisso/fsociety"

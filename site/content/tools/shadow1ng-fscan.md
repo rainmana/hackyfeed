@@ -2,12 +2,12 @@
 title: "fscan"
 date: 2026-03-22
 categories:
-  - exploit
   - scanner
+  - exploit
 tags:
   - go
 github_url: "https://github.com/shadow1ng/fscan"
-stars: 13521
+stars: 13522
 language: "Go"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

@@ -6,7 +6,7 @@ categories:
 tags:
   - vue
 github_url: "https://github.com/jason5ng32/MyIP"
-stars: 9983
+stars: 9982
 language: "Vue"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

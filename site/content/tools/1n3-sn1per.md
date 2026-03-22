@@ -3,8 +3,8 @@ title: "Sn1per"
 date: 2026-03-22
 categories:
   - malware
-  - pentesting
   - osint
+  - pentesting
 tags:
   - shell
 github_url: "https://github.com/1N3/Sn1per"

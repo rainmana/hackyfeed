@@ -2,10 +2,10 @@
 title: "K8tools"
 date: 2026-03-22
 categories:
-  - exploit
   - scanner
-  - pentesting
   - privilege-escalation
+  - exploit
+  - pentesting
 tags:
   - powershell
 github_url: "https://github.com/k8gege/K8tools"

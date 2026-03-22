@@ -2,8 +2,8 @@
 title: "openhaystack"
 date: 2026-03-22
 categories:
-  - network
   - reverse-engineering
+  - network
 tags:
   - swift
 github_url: "https://github.com/seemoo-lab/openhaystack"

@@ -2,13 +2,13 @@
 title: "Scanners-Box"
 date: 2026-03-22
 categories:
+  - scanner
+  - exploit
+  - pentesting
+  - reverse-engineering
   - malware
   - network
   - red-team
-  - pentesting
-  - exploit
-  - scanner
-  - reverse-engineering
 
 github_url: "https://github.com/We5ter/Scanners-Box"
 stars: 8863

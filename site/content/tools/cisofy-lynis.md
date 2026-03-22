@@ -2,12 +2,12 @@
 title: "lynis"
 date: 2026-03-22
 categories:
-  - exploit
   - scanner
+  - exploit
 tags:
   - shell
 github_url: "https://github.com/CISOfy/lynis"
-stars: 15418
+stars: 15419
 language: "Shell"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

@@ -2,11 +2,11 @@
 title: "awesome-web-hacking"
 date: 2026-03-22
 categories:
-  - exploit
-  - scanner
   - malware
-  - pentesting
   - web-security
+  - scanner
+  - exploit
+  - pentesting
 
 github_url: "https://github.com/infoslack/awesome-web-hacking"
 stars: 6824
