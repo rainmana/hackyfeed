@@ -1,0 +1,24 @@
+{{ define "main" }}
+<h1 class="cursor" style="color:var(--accent);margin-bottom:0.3rem;">~/hackyfeed $</h1>
+<p style="color:var(--text-muted);margin-bottom:2rem;">{{ .Site.Params.description }}</p>
+
+<div class="tool-list">
+  {{ range .Paginator.Pages }}
+  <article class="tool-card">
+    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    <div class="tool-meta">
+      <span>{{ .Date.Format "2006-01-02" }}</span>
+      {{ with .Params.language }}<span>{{ . }}</span>{{ end }}
+      {{ with .Params.stars }}<span>★ {{ . }}</span>{{ end }}
+      {{ with .Params.github_url }}<span><a href="{{ . }}">github</a></span>{{ end }}
+    </div>
+    <div class="tool-summary">{{ .Summary }}</div>
+    <div class="tool-tags">
+      {{ range .Params.categories }}<span class="tag">{{ . }}</span>{{ end }}
+    </div>
+  </article>
+  {{ end }}
+</div>
+
+{{ template "_internal/pagination.html" . }}
+{{ end }}

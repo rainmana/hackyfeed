@@ -1,0 +1,20 @@
+# Environment / secrets
+.env
+*.db
+
+# Hugo
+site/public/
+site/resources/
+site/.hugo_build.lock
+
+# Go
+hackyfeed
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp

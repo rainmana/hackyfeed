@@ -1,0 +1,26 @@
+baseURL = "https://rainmana.github.io/hackyfeed/"
+languageCode = "en-us"
+title = "HackyFeed"
+theme = "hackyfeed-theme"
+
+[params]
+  description = "A cybersecurity tools aggregator — discover the latest pentesting, red team, and offensive security tools from GitHub."
+  author = "rainmana"
+  tagline = "> cat /dev/github | grep security-tools"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[outputs]
+  home = ["HTML", "RSS"]
+
+[outputFormats.RSS]
+  mediatype = "application/rss+xml"
+  baseName = "feed"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[pagination]
+  pagerSize = 25

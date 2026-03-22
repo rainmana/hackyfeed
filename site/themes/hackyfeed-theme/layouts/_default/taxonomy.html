@@ -1,0 +1,14 @@
+{{ define "main" }}
+<h1 style="color:var(--accent);margin-bottom:1rem;">{{ .Title }}</h1>
+{{ range .Pages }}
+<article class="tool-card">
+  <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+  <div class="tool-meta">
+    <span>{{ .Date.Format "2006-01-02" }}</span>
+    {{ with .Params.language }}<span>{{ . }}</span>{{ end }}
+    {{ with .Params.stars }}<span>★ {{ . }}</span>{{ end }}
+  </div>
+  <div class="tool-summary">{{ .Summary }}</div>
+</article>
+{{ end }}
+{{ end }}

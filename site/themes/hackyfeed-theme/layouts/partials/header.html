@@ -1,0 +1,17 @@
+<header>
+  <div class="container">
+    <div>
+      <div class="site-title"><a href="{{ .Site.BaseURL }}">~/hackyfeed</a></div>
+      <div class="tagline">{{ .Site.Params.tagline }}</div>
+    </div>
+    <nav>
+      <a href="{{ .Site.BaseURL }}">feed</a>
+      <a href="{{ "categories/" | relURL }}">categories</a>
+      <a href="{{ "awesome/" | relURL }}">awesome</a>
+      <a href="{{ "pages/about/" | relURL }}">about</a>
+      <a href="{{ "pages/disclaimer/" | relURL }}">disclaimer</a>
+      <a href="{{ "feed.xml" | relURL }}">rss</a>
+      <button class="theme-toggle" id="theme-toggle">[ light ]</button>
+    </nav>
+  </div>
+</header>

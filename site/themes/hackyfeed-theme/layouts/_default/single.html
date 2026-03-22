@@ -1,0 +1,26 @@
+{{ define "main" }}
+<article class="tool-single">
+  <h1>{{ .Title }}</h1>
+  <div class="tool-meta">
+    <span>{{ .Date.Format "2006-01-02" }}</span>
+    {{ with .Params.language }}<span>{{ . }}</span>{{ end }}
+    {{ with .Params.stars }}<span>★ {{ . }}</span>{{ end }}
+  </div>
+
+  {{ with .Params.github_url }}<a class="github-link" href="{{ . }}" target="_blank" rel="noopener">→ View on GitHub</a>{{ end }}
+
+  <div class="content">{{ .Content }}</div>
+
+  {{ with .Params.install_instructions }}
+  <div class="install-box">
+    <h3>$ install</h3>
+    <pre><code>{{ . }}</code></pre>
+  </div>
+  {{ end }}
+
+  <div class="tool-tags" style="margin-top:1.5rem;">
+    {{ range .Params.categories }}<a class="tag" href="{{ "categories/" | relURL }}{{ . | urlize }}/">{{ . }}</a> {{ end }}
+    {{ range .Params.tags }}<a class="tag" href="{{ "tags/" | relURL }}{{ . | urlize }}/">{{ . }}</a> {{ end }}
+  </div>
+</article>
+{{ end }}

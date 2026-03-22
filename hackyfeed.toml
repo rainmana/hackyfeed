@@ -1,0 +1,79 @@
+# HackyFeed Configuration
+# Clone this repo and edit this file to create your own tool aggregator!
+
+[site]
+title = "HackyFeed"
+base_url = "https://rainmana.github.io/hackyfeed/"
+description = "A cybersecurity tools aggregator — discover the latest pentesting, red team, and offensive security tools from GitHub."
+tagline = "> cat /dev/github | grep security-tools"
+author = "rainmana"
+
+[fetch]
+# GitHub topics to search for repos. Add/remove to match your interests.
+topics = [
+  "pentesting",
+  "pentest-tool",
+  "red-team",
+  "exploit",
+  "offensive-security",
+  "hacking-tool",
+  "osint",
+  "vulnerability-scanner",
+  "bug-bounty",
+  "ctf-tools",
+  "reverse-engineering",
+  "malware-analysis",
+  "security-tools",
+  "post-exploitation",
+  "privilege-escalation",
+]
+
+# Minimum stars for a repo to be included
+min_stars = 10
+
+# Additional awesome-list URLs to parse (raw README.md URLs)
+awesome_lists = [
+  "https://raw.githubusercontent.com/rainmana/awesome-rainmana/master/README.md",
+]
+
+[summarize]
+# Set to false to skip AI summaries entirely (uses repo description instead)
+enabled = true
+
+# Max repos to summarize per run (0 = unlimited). Useful for cost control.
+batch_limit = 0
+
+# Writing tone: "technical", "casual", "beginner-friendly", or any custom string
+tone = "technical"
+
+# System prompt for AI summarization — customize freely!
+# Available template variables: {{.Tone}}
+system_prompt = """You are a cybersecurity tools cataloger. Given a GitHub repo's README content, produce a JSON object with:
+- "summary": A concise 2-3 sentence description of what the tool does, its primary use case, and notable features. Write in a {{.Tone}} tone.
+- "install": Brief installation instructions (the primary method). If unclear, use "See README for installation instructions."
+Respond ONLY with valid JSON, no markdown fences."""
+
+# Max README characters to send to the LLM (saves tokens)
+max_readme_chars = 4000
+
+[categories]
+# Keyword-based auto-categorization. Keys are category names, values are keyword lists.
+# A repo is assigned a category if any keyword matches its topics, description, or name.
+[categories.rules]
+exploit = ["exploit", "cve", "vulnerability", "0day"]
+red-team = ["red-team", "redteam", "c2", "command-and-control", "cobalt"]
+pentesting = ["pentest", "pentesting", "penetration"]
+osint = ["osint", "recon", "reconnaissance", "intelligence"]
+scanner = ["scanner", "scan", "nmap", "port-scan"]
+reverse-engineering = ["reverse-engineering", "disassembl", "decompil", "binary-analysis"]
+malware = ["malware", "ransomware", "trojan", "rat"]
+web-security = ["web-security", "xss", "sqli", "injection", "burp"]
+network = ["network", "wireless", "wifi", "packet", "mitm"]
+privilege-escalation = ["privilege-escalation", "privesc", "escalat"]
+post-exploitation = ["post-exploitation", "lateral-movement", "persistence"]
+cryptography = ["crypto", "encrypt", "decrypt", "cipher"]
+forensics = ["forensic", "dfir", "incident-response"]
+cloud-security = ["cloud-security", "aws-security", "azure-security"]
+
+# Default category when no keywords match
+default_category = "security-tools"

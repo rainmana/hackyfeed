@@ -1,0 +1,8 @@
+{{ define "main" }}
+<h1 style="color:var(--accent);margin-bottom:1rem;">categories/</h1>
+<div class="category-list">
+  {{ range .Data.Terms.Alphabetical }}
+  <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} ({{ .Count }})</a>
+  {{ end }}
+</div>
+{{ end }}

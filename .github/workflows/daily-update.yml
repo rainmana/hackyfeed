@@ -1,0 +1,72 @@
+name: Daily Update & Deploy
+
+on:
+  schedule:
+    - cron: '0 14 * * *'  # 8am MT / 2pm UTC daily
+  workflow_dispatch:       # manual trigger
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  update-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: Build CLI
+        run: go build -o hackyfeed ./cmd/hackyfeed/
+
+      - name: Fetch repos
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+        run: ./hackyfeed fetch
+
+      - name: Summarize new repos
+        env:
+          LLM_API_BASE: ${{ secrets.LLM_API_BASE }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_MODEL: ${{ vars.LLM_MODEL || 'gpt-4o-mini' }}
+        run: ./hackyfeed summarize
+
+      - name: Generate Hugo content
+        run: ./hackyfeed generate
+
+      - name: Commit DB and content updates
+        run: |
+          git config user.name "hackyfeed-bot"
+          git config user.email "bot@hackyfeed"
+          git add hackyfeed.db site/content/
+          git diff --staged --quiet || git commit -m "chore: daily update $(date -u +%Y-%m-%d)"
+          git push
+
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+
+      - name: Build Hugo site
+        run: hugo --minify
+        working-directory: site
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site/public
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
