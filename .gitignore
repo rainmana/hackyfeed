@@ -7,8 +7,8 @@ site/public/
 site/resources/
 site/.hugo_build.lock
 
-# Go
-hackyfeed
+# Go binary
+/hackyfeed
 
 # OS
 .DS_Store
