@@ -6,7 +6,7 @@ categories:
 tags:
   - typescript
 github_url: "https://github.com/koala73/worldmonitor"
-stars: 42326
+stars: 42466
 language: "TypeScript"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

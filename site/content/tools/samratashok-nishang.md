@@ -2,9 +2,9 @@
 title: "nishang"
 date: 2026-03-22
 categories:
-  - pentesting
-  - malware
   - red-team
+  - malware
+  - pentesting
 tags:
   - powershell
 github_url: "https://github.com/samratashok/nishang"

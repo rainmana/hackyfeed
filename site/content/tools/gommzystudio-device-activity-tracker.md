@@ -2,8 +2,8 @@
 title: "device-activity-tracker"
 date: 2026-03-22
 categories:
-  - exploit
   - malware
+  - exploit
 tags:
   - typescript
 github_url: "https://github.com/gommzystudio/device-activity-tracker"

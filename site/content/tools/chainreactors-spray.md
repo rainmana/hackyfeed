@@ -6,7 +6,7 @@ categories:
 tags:
   - go
 github_url: "https://github.com/chainreactors/spray"
-stars: 995
+stars: 996
 language: "Go"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

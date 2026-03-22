@@ -6,7 +6,7 @@ categories:
 tags:
   - html
 github_url: "https://github.com/ultrasecurity/Storm-Breaker"
-stars: 4869
+stars: 4870
 language: "HTML"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

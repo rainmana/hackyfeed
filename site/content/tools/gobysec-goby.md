@@ -3,10 +3,10 @@ title: "Goby"
 date: 2026-03-22
 categories:
   - network
-  - red-team
+  - pentesting
   - scanner
   - exploit
-  - pentesting
+  - red-team
 
 github_url: "https://github.com/gobysec/Goby"
 stars: 1500

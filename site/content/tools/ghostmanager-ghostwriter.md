@@ -3,8 +3,8 @@ title: "Ghostwriter"
 date: 2026-03-22
 categories:
   - pentesting
-  - malware
   - red-team
+  - malware
 tags:
   - python
 github_url: "https://github.com/GhostManager/Ghostwriter"

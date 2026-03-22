@@ -2,10 +2,10 @@
 title: "phpsploit"
 date: 2026-03-22
 categories:
-  - privilege-escalation
   - exploit
-  - post-exploitation
   - red-team
+  - privilege-escalation
+  - post-exploitation
 tags:
   - python
 github_url: "https://github.com/nil0x42/phpsploit"

@@ -6,7 +6,7 @@ categories:
 tags:
   - go
 github_url: "https://github.com/authzed/spicedb"
-stars: 6536
+stars: 6537
 language: "Go"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

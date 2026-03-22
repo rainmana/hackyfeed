@@ -2,9 +2,9 @@
 title: "PowerHub"
 date: 2026-03-22
 categories:
+  - pentesting
   - post-exploitation
   - exploit
-  - pentesting
 tags:
   - powershell
 github_url: "https://github.com/AdrianVollmer/PowerHub"

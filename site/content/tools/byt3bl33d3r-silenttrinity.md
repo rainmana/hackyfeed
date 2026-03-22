@@ -3,9 +3,9 @@ title: "SILENTTRINITY"
 date: 2026-03-22
 categories:
   - red-team
-  - exploit
   - malware
   - post-exploitation
+  - exploit
 tags:
   - boo
 github_url: "https://github.com/byt3bl33d3r/SILENTTRINITY"

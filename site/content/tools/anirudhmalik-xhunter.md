@@ -3,8 +3,8 @@ title: "xhunter"
 date: 2026-03-22
 categories:
   - malware
-  - exploit
   - pentesting
+  - exploit
 tags:
   - java
 github_url: "https://github.com/anirudhmalik/xhunter"

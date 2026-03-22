@@ -6,7 +6,7 @@ categories:
 tags:
   - shell
 github_url: "https://github.com/Security-Onion-Solutions/securityonion"
-stars: 4488
+stars: 4489
 language: "Shell"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

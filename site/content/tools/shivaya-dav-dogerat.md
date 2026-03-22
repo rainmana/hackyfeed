@@ -3,8 +3,8 @@ title: "DogeRat"
 date: 2026-03-22
 categories:
   - malware
-  - exploit
   - pentesting
+  - exploit
 
 github_url: "https://github.com/shivaya-dav/DogeRat"
 stars: 1866

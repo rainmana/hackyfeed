@@ -8,7 +8,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/jayofelony/pwnagotchi"
-stars: 2583
+stars: 2584
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

@@ -3,9 +3,9 @@ title: "Garud"
 date: 2026-03-22
 categories:
   - exploit
-  - pentesting
   - malware
   - web-security
+  - pentesting
   - osint
   - scanner
 tags:

@@ -2,12 +2,12 @@
 title: "Awesome-Cybersecurity-Handbooks"
 date: 2026-03-22
 categories:
-  - red-team
-  - pentesting
   - malware
+  - pentesting
+  - red-team
 
 github_url: "https://github.com/0xsyr0/Awesome-Cybersecurity-Handbooks"
-stars: 3293
+stars: 3294
 language: ""
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

@@ -6,7 +6,7 @@ categories:
 tags:
   - c++
 github_url: "https://github.com/eteran/edb-debugger"
-stars: 2906
+stars: 2905
 language: "C++"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

@@ -6,7 +6,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/taranis-ai/taranis-ai"
-stars: 979
+stars: 978
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

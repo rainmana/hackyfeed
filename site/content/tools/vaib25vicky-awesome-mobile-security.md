@@ -3,11 +3,11 @@ title: "awesome-mobile-security"
 date: 2026-03-22
 categories:
   - pentesting
-  - reverse-engineering
   - red-team
+  - reverse-engineering
 
 github_url: "https://github.com/vaib25vicky/awesome-mobile-security"
-stars: 3446
+stars: 3448
 language: ""
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

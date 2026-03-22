@@ -2,8 +2,8 @@
 title: "linkedin2username"
 date: 2026-03-22
 categories:
-  - pentesting
   - malware
+  - pentesting
   - osint
 tags:
   - python

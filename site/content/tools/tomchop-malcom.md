@@ -3,9 +3,9 @@ title: "malcom"
 date: 2026-03-22
 categories:
   - forensics
+  - osint
   - malware
   - network
-  - osint
 tags:
   - python
 github_url: "https://github.com/tomchop/malcom"

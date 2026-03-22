@@ -6,7 +6,7 @@ categories:
 tags:
   - shell
 github_url: "https://github.com/evildevill/instahack"
-stars: 1769
+stars: 1770
 language: "Shell"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

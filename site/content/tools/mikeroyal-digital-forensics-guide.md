@@ -3,9 +3,9 @@ title: "Digital-Forensics-Guide"
 date: 2026-03-22
 categories:
   - network
+  - forensics
   - osint
   - scanner
-  - forensics
 tags:
   - python
 github_url: "https://github.com/mikeroyal/Digital-Forensics-Guide"

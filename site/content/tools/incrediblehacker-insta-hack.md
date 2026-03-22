@@ -6,7 +6,7 @@ categories:
 tags:
   - shell
 github_url: "https://github.com/IncredibleHacker/insta-hack"
-stars: 1058
+stars: 1059
 language: "Shell"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

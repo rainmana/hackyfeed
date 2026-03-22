@@ -2,8 +2,8 @@
 title: "dexcalibur"
 date: 2026-03-22
 categories:
-  - malware
   - reverse-engineering
+  - malware
 tags:
   - javascript
 github_url: "https://github.com/FrenchYeti/dexcalibur"

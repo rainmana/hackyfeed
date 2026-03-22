@@ -6,7 +6,7 @@ categories:
 tags:
   - go
 github_url: "https://github.com/xiecat/goblin"
-stars: 1536
+stars: 1537
 language: "Go"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

@@ -2,9 +2,9 @@
 title: "collection-document"
 date: 2026-03-22
 categories:
-  - red-team
-  - pentesting
   - web-security
+  - pentesting
+  - red-team
 
 github_url: "https://github.com/tom0li/collection-document"
 stars: 2101

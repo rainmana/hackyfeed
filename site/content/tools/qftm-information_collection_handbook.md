@@ -3,8 +3,8 @@ title: "Information_Collection_Handbook"
 date: 2026-03-22
 categories:
   - exploit
-  - pentesting
   - malware
+  - pentesting
 
 github_url: "https://github.com/Qftm/Information_Collection_Handbook"
 stars: 830

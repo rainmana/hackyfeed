@@ -9,7 +9,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/alexandreborges/malwoverview"
-stars: 3675
+stars: 3681
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

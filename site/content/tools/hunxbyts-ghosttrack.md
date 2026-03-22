@@ -7,7 +7,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/HunxByts/GhostTrack"
-stars: 8224
+stars: 8228
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

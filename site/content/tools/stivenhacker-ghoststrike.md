@@ -2,8 +2,8 @@
 title: "GhostStrike"
 date: 2026-03-22
 categories:
-  - malware
   - red-team
+  - malware
 tags:
   - c++
 github_url: "https://github.com/stivenhacker/GhostStrike"

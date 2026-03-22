@@ -2,8 +2,8 @@
 title: "GonnaCry"
 date: 2026-03-22
 categories:
-  - malware
   - cryptography
+  - malware
 tags:
   - python
 github_url: "https://github.com/tarcisio-marinho/GonnaCry"

@@ -2,10 +2,10 @@
 title: "nodepass"
 date: 2026-03-22
 categories:
-  - pentesting
+  - red-team
   - malware
   - network
-  - red-team
+  - pentesting
 tags:
   - go
 github_url: "https://github.com/NodePassProject/nodepass"

@@ -2,12 +2,12 @@
 title: "Open-Source-Security-Guide"
 date: 2026-03-22
 categories:
-  - exploit
-  - pentesting
   - network
   - cryptography
-  - scanner
   - forensics
+  - pentesting
+  - scanner
+  - exploit
 tags:
   - go
 github_url: "https://github.com/mikeroyal/Open-Source-Security-Guide"

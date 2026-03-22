@@ -3,9 +3,9 @@ title: "malicious-pdf"
 date: 2026-03-22
 categories:
   - web-security
-  - red-team
-  - scanner
   - pentesting
+  - scanner
+  - red-team
   - malware
 tags:
   - python

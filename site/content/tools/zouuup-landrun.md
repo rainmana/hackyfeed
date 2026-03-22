@@ -6,7 +6,7 @@ categories:
 tags:
   - go
 github_url: "https://github.com/Zouuup/landrun"
-stars: 2154
+stars: 2155
 language: "Go"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

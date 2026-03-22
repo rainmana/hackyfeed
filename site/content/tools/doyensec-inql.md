@@ -2,11 +2,11 @@
 title: "inql"
 date: 2026-03-22
 categories:
-  - pentesting
-  - malware
   - web-security
+  - pentesting
   - scanner
   - exploit
+  - malware
 tags:
   - kotlin
 github_url: "https://github.com/doyensec/inql"

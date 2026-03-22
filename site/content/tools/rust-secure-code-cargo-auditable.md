@@ -6,7 +6,7 @@ categories:
 tags:
   - rust
 github_url: "https://github.com/rust-secure-code/cargo-auditable"
-stars: 814
+stars: 815
 language: "Rust"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

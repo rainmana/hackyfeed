@@ -2,9 +2,9 @@
 title: "HackTools"
 date: 2026-03-22
 categories:
-  - pentesting
-  - web-security
   - red-team
+  - web-security
+  - pentesting
 tags:
   - typescript
 github_url: "https://github.com/LasCC/HackTools"

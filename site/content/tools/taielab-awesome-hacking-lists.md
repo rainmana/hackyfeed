@@ -2,8 +2,8 @@
 title: "awesome-hacking-lists"
 date: 2026-03-22
 categories:
-  - pentesting
   - malware
+  - pentesting
 
 github_url: "https://github.com/taielab/awesome-hacking-lists"
 stars: 1300

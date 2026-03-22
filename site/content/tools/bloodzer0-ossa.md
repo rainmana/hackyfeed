@@ -2,8 +2,8 @@
 title: "ossa"
 date: 2026-03-22
 categories:
-  - scanner
   - exploit
+  - scanner
 
 github_url: "https://github.com/bloodzer0/ossa"
 stars: 943

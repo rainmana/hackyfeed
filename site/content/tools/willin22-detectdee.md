@@ -2,13 +2,13 @@
 title: "DetectDee"
 date: 2026-03-22
 categories:
-  - network
   - red-team
+  - network
   - osint
 tags:
   - go
 github_url: "https://github.com/willin22/DetectDee"
-stars: 1708
+stars: 1709
 language: "Go"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

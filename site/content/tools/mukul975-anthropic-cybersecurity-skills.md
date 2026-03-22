@@ -2,16 +2,16 @@
 title: "Anthropic-Cybersecurity-Skills"
 date: 2026-03-22
 categories:
-  - malware
-  - red-team
   - osint
-  - forensics
   - cloud-security
+  - red-team
+  - malware
+  - forensics
   - pentesting
 tags:
   - python
 github_url: "https://github.com/mukul975/Anthropic-Cybersecurity-Skills"
-stars: 3593
+stars: 3609
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

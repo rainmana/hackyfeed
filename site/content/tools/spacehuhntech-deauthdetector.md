@@ -2,8 +2,8 @@
 title: "DeauthDetector"
 date: 2026-03-22
 categories:
-  - exploit
   - network
+  - exploit
 tags:
   - c++
 github_url: "https://github.com/SpacehuhnTech/DeauthDetector"

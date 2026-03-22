@@ -2,8 +2,8 @@
 title: "Awesome-OSINT-For-Everything"
 date: 2026-03-22
 categories:
-  - malware
   - red-team
+  - malware
   - osint
 tags:
   - shell

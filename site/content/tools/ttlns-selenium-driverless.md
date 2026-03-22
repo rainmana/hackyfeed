@@ -2,8 +2,8 @@
 title: "Selenium-Driverless"
 date: 2026-03-22
 categories:
-  - reverse-engineering
   - exploit
+  - reverse-engineering
 tags:
   - python
 github_url: "https://github.com/ttlns/Selenium-Driverless"

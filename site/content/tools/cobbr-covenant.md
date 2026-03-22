@@ -2,12 +2,12 @@
 title: "Covenant"
 date: 2026-03-22
 categories:
-  - malware
   - red-team
+  - malware
 tags:
   - c#
 github_url: "https://github.com/cobbr/Covenant"
-stars: 4645
+stars: 4646
 language: "C#"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

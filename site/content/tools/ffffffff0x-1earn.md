@@ -3,8 +3,8 @@ title: "1earn"
 date: 2026-03-22
 categories:
   - red-team
-  - pentesting
   - malware
+  - pentesting
 tags:
   - c++
 github_url: "https://github.com/ffffffff0x/1earn"

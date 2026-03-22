@@ -2,9 +2,9 @@
 title: "wpprobe"
 date: 2026-03-22
 categories:
-  - malware
   - osint
   - exploit
+  - malware
   - pentesting
 tags:
   - go

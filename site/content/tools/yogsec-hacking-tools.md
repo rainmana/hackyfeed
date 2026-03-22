@@ -2,13 +2,13 @@
 title: "Hacking-Tools"
 date: 2026-03-22
 categories:
-  - red-team
-  - forensics
   - exploit
-  - pentesting
+  - red-team
   - reverse-engineering
   - malware
   - web-security
+  - forensics
+  - pentesting
 
 github_url: "https://github.com/yogsec/Hacking-Tools"
 stars: 1297

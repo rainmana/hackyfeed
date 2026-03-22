@@ -6,7 +6,7 @@ categories:
 tags:
   - c
 github_url: "https://github.com/pret/pokefirered"
-stars: 1360
+stars: 1361
 language: "C"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

@@ -2,10 +2,10 @@
 title: "hacking-resources"
 date: 2026-03-22
 categories:
-  - exploit
   - malware
   - network
   - osint
+  - exploit
 
 github_url: "https://github.com/Lifka/hacking-resources"
 stars: 2411

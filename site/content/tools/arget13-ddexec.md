@@ -6,7 +6,7 @@ categories:
 tags:
   - shell
 github_url: "https://github.com/arget13/DDexec"
-stars: 882
+stars: 881
 language: "Shell"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

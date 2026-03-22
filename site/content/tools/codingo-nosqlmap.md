@@ -2,11 +2,11 @@
 title: "NoSQLMap"
 date: 2026-03-22
 categories:
-  - pentesting
+  - exploit
   - malware
   - web-security
+  - pentesting
   - scanner
-  - exploit
 tags:
   - python
 github_url: "https://github.com/codingo/NoSQLMap"

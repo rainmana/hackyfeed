@@ -3,8 +3,8 @@ title: "Ladon"
 date: 2026-03-22
 categories:
   - exploit
-  - pentesting
   - red-team
+  - pentesting
   - scanner
 tags:
   - c#

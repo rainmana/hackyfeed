@@ -6,7 +6,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/instaloader/instaloader"
-stars: 11937
+stars: 11938
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

@@ -2,8 +2,8 @@
 title: "xssor2"
 date: 2026-03-22
 categories:
-  - pentesting
   - web-security
+  - pentesting
 tags:
   - javascript
 github_url: "https://github.com/evilcos/xssor2"

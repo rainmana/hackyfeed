@@ -2,8 +2,8 @@
 title: "pwncat"
 date: 2026-03-22
 categories:
-  - pentesting
   - malware
+  - pentesting
 tags:
   - shell
 github_url: "https://github.com/cytopia/pwncat"

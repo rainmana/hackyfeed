@@ -2,8 +2,8 @@
 title: "OneDorkForAll"
 date: 2026-03-22
 categories:
-  - red-team
   - osint
+  - red-team
 
 github_url: "https://github.com/SecShiv/OneDorkForAll"
 stars: 785

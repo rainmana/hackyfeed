@@ -6,7 +6,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/honmashironeko/ProxyCat"
-stars: 2435
+stars: 2436
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

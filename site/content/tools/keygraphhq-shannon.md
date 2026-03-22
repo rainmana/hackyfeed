@@ -2,13 +2,13 @@
 title: "shannon"
 date: 2026-03-22
 categories:
-  - malware
   - exploit
+  - malware
   - pentesting
 tags:
   - typescript
 github_url: "https://github.com/KeygraphHQ/shannon"
-stars: 34201
+stars: 34222
 language: "TypeScript"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

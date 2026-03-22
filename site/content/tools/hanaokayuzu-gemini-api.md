@@ -7,7 +7,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/HanaokaYuzu/Gemini-API"
-stars: 2440
+stars: 2442
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

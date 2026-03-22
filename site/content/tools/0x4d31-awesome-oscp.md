@@ -2,8 +2,8 @@
 title: "awesome-oscp"
 date: 2026-03-22
 categories:
-  - pentesting
   - malware
+  - pentesting
 
 github_url: "https://github.com/0x4D31/awesome-oscp"
 stars: 3384

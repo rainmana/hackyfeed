@@ -2,8 +2,8 @@
 title: "terracognita"
 date: 2026-03-22
 categories:
-  - reverse-engineering
   - malware
+  - reverse-engineering
 tags:
   - go
 github_url: "https://github.com/cycloidio/terracognita"

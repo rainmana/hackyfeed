@@ -2,9 +2,9 @@
 title: "BurpBounty"
 date: 2026-03-22
 categories:
-  - scanner
   - exploit
   - web-security
+  - scanner
 tags:
   - java
 github_url: "https://github.com/wagiro/BurpBounty"

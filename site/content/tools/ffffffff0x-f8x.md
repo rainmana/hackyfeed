@@ -6,7 +6,7 @@ categories:
 tags:
   - shell
 github_url: "https://github.com/ffffffff0x/f8x"
-stars: 2100
+stars: 2101
 language: "Shell"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

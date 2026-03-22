@@ -7,7 +7,7 @@ categories:
 tags:
   - c
 github_url: "https://github.com/HyperDbg/HyperDbg"
-stars: 3683
+stars: 3685
 language: "C"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

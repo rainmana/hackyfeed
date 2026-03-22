@@ -6,7 +6,7 @@ categories:
 tags:
   - typescript
 github_url: "https://github.com/reconurge/flowsint"
-stars: 2767
+stars: 2768
 language: "TypeScript"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

@@ -2,11 +2,11 @@
 title: "Nginx-Lua-Anti-DDoS"
 date: 2026-03-22
 categories:
+  - cryptography
   - exploit
   - malware
   - web-security
   - network
-  - cryptography
 tags:
   - lua
 github_url: "https://github.com/C0nw0nk/Nginx-Lua-Anti-DDoS"

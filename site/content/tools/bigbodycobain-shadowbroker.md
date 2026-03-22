@@ -7,7 +7,7 @@ categories:
 tags:
   - typescript
 github_url: "https://github.com/BigBodyCobain/Shadowbroker"
-stars: 4531
+stars: 4586
 language: "TypeScript"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

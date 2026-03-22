@@ -2,8 +2,8 @@
 title: "RedTeam_BlueTeam_HW"
 date: 2026-03-22
 categories:
-  - pentesting
   - red-team
+  - pentesting
 tags:
   - java
 github_url: "https://github.com/Mr-xn/RedTeam_BlueTeam_HW"

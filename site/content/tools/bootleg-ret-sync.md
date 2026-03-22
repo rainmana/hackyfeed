@@ -6,7 +6,7 @@ categories:
 tags:
   - c
 github_url: "https://github.com/bootleg/ret-sync"
-stars: 2315
+stars: 2316
 language: "C"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

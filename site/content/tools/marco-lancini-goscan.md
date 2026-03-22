@@ -2,9 +2,9 @@
 title: "goscan"
 date: 2026-03-22
 categories:
-  - pentesting
-  - network
   - scanner
+  - network
+  - pentesting
 tags:
   - go
 github_url: "https://github.com/marco-lancini/goscan"

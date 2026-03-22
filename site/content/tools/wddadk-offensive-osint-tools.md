@@ -2,9 +2,9 @@
 title: "Offensive-OSINT-Tools"
 date: 2026-03-22
 categories:
-  - pentesting
-  - red-team
   - osint
+  - red-team
+  - pentesting
 
 github_url: "https://github.com/wddadk/Offensive-OSINT-Tools"
 stars: 1141

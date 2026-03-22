@@ -3,8 +3,8 @@ title: "BurpSuite-collections"
 date: 2026-03-22
 categories:
   - pentesting
-  - web-security
   - scanner
+  - web-security
 tags:
   - html
 github_url: "https://github.com/Mr-xn/BurpSuite-collections"

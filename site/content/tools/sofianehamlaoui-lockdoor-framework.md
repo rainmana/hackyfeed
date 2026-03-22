@@ -3,8 +3,8 @@ title: "Lockdoor-Framework"
 date: 2026-03-22
 categories:
   - malware
-  - red-team
   - pentesting
+  - red-team
 tags:
   - python
 github_url: "https://github.com/SofianeHamlaoui/Lockdoor-Framework"

@@ -1,19 +1,17 @@
 ---
-title: "faraday"
+title: "DeepTraffic"
 date: 2026-03-22
 categories:
-  - web-security
-  - pentesting
-  - scanner
-  - exploit
   - malware
+  - network
+  - cryptography
 tags:
   - python
-github_url: "https://github.com/infobyte/faraday"
-stars: 6304
+github_url: "https://github.com/echowei/DeepTraffic"
+stars: 763
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"
 ---
 
-Open Source Vulnerability Management Platform
+Deep Learning models for network traffic classification

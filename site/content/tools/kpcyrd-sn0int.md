@@ -2,13 +2,13 @@
 title: "sn0int"
 date: 2026-03-22
 categories:
+  - pentesting
   - osint
   - scanner
-  - pentesting
 tags:
   - rust
 github_url: "https://github.com/kpcyrd/sn0int"
-stars: 2416
+stars: 2417
 language: "Rust"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

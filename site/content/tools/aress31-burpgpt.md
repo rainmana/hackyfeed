@@ -2,10 +2,10 @@
 title: "burpgpt"
 date: 2026-03-22
 categories:
+  - pentesting
+  - scanner
   - malware
   - web-security
-  - scanner
-  - pentesting
 tags:
   - java
 github_url: "https://github.com/aress31/burpgpt"

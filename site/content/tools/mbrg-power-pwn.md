@@ -2,13 +2,13 @@
 title: "power-pwn"
 date: 2026-03-22
 categories:
-  - pentesting
   - red-team
+  - pentesting
   - osint
 tags:
   - python
 github_url: "https://github.com/mbrg/power-pwn"
-stars: 1132
+stars: 1133
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

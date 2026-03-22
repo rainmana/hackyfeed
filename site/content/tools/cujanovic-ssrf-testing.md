@@ -6,7 +6,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/cujanovic/SSRF-Testing"
-stars: 2481
+stars: 2482
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

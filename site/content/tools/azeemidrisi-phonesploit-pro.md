@@ -2,8 +2,8 @@
 title: "PhoneSploit-Pro"
 date: 2026-03-22
 categories:
-  - malware
   - exploit
+  - malware
   - pentesting
 tags:
   - python

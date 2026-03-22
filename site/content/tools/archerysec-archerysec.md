@@ -2,9 +2,9 @@
 title: "archerysec"
 date: 2026-03-22
 categories:
+  - pentesting
   - scanner
   - exploit
-  - pentesting
 tags:
   - javascript
 github_url: "https://github.com/archerysec/archerysec"

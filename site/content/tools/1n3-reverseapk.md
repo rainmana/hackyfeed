@@ -2,8 +2,8 @@
 title: "ReverseAPK"
 date: 2026-03-22
 categories:
-  - reverse-engineering
   - pentesting
+  - reverse-engineering
 tags:
   - shell
 github_url: "https://github.com/1N3/ReverseAPK"

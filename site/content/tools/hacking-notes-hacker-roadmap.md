@@ -2,9 +2,9 @@
 title: "Hacker-Roadmap"
 date: 2026-03-22
 categories:
-  - malware
-  - red-team
   - pentesting
+  - red-team
+  - malware
 
 github_url: "https://github.com/Hacking-Notes/Hacker-Roadmap"
 stars: 1237

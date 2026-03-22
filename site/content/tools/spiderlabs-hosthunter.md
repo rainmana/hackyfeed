@@ -2,9 +2,9 @@
 title: "HostHunter"
 date: 2026-03-22
 categories:
-  - pentesting
   - malware
   - network
+  - pentesting
   - osint
 tags:
   - python

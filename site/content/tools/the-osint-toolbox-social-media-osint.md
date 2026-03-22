@@ -2,8 +2,8 @@
 title: "Social-Media-OSINT"
 date: 2026-03-22
 categories:
-  - osint
   - network
+  - osint
 
 github_url: "https://github.com/The-Osint-Toolbox/Social-Media-OSINT"
 stars: 780

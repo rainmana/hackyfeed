@@ -4,11 +4,11 @@ date: 2026-03-22
 categories:
   - scanner
   - privilege-escalation
-  - exploit
-  - pentesting
-  - malware
   - post-exploitation
+  - exploit
   - red-team
+  - malware
+  - pentesting
 
 github_url: "https://github.com/ihebski/A-Red-Teamer-diaries"
 stars: 1901

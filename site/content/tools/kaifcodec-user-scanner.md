@@ -2,13 +2,13 @@
 title: "user-scanner"
 date: 2026-03-22
 categories:
-  - osint
   - scanner
   - malware
+  - osint
 tags:
   - python
 github_url: "https://github.com/kaifcodec/user-scanner"
-stars: 1322
+stars: 1323
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

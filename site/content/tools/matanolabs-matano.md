@@ -2,8 +2,8 @@
 title: "matano"
 date: 2026-03-22
 categories:
-  - forensics
   - cloud-security
+  - forensics
 tags:
   - rust
 github_url: "https://github.com/matanolabs/matano"

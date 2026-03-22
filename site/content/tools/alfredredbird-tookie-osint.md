@@ -6,7 +6,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/Alfredredbird/tookie-osint"
-stars: 1948
+stars: 1963
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

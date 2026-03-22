@@ -2,13 +2,13 @@
 title: "js-cookie-monitor-debugger-hook"
 date: 2026-03-22
 categories:
+  - red-team
   - reverse-engineering
   - web-security
-  - red-team
 tags:
   - typescript
 github_url: "https://github.com/JSREI/js-cookie-monitor-debugger-hook"
-stars: 771
+stars: 772
 language: "TypeScript"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

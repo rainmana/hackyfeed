@@ -6,7 +6,7 @@ categories:
 tags:
   - typescript
 github_url: "https://github.com/unicodeveloper/globalthreatmap"
-stars: 1360
+stars: 1366
 language: "TypeScript"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

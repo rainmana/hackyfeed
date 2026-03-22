@@ -7,7 +7,7 @@ categories:
 tags:
   - java
 github_url: "https://github.com/The404Hacking/AndroRAT"
-stars: 1582
+stars: 1583
 language: "Java"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

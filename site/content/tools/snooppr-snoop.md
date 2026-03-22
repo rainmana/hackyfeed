@@ -3,9 +3,9 @@ title: "snoop"
 date: 2026-03-22
 categories:
   - red-team
+  - pentesting
   - osint
   - scanner
-  - pentesting
 tags:
   - python
 github_url: "https://github.com/snooppr/snoop"

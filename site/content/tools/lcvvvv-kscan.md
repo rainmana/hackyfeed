@@ -2,8 +2,8 @@
 title: "kscan"
 date: 2026-03-22
 categories:
-  - pentesting
   - red-team
+  - pentesting
   - scanner
   - exploit
 tags:

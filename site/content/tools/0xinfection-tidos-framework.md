@@ -2,11 +2,11 @@
 title: "TIDoS-Framework"
 date: 2026-03-22
 categories:
+  - pentesting
+  - osint
   - scanner
   - exploit
-  - pentesting
   - malware
-  - osint
 tags:
   - python
 github_url: "https://github.com/0xInfection/TIDoS-Framework"

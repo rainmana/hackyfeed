@@ -2,10 +2,10 @@
 title: "Artemis"
 date: 2026-03-22
 categories:
-  - exploit
-  - pentesting
   - malware
+  - pentesting
   - scanner
+  - exploit
 tags:
   - python
 github_url: "https://github.com/CERT-Polska/Artemis"

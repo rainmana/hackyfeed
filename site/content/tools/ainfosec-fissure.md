@@ -2,8 +2,8 @@
 title: "FISSURE"
 date: 2026-03-22
 categories:
-  - network
   - reverse-engineering
+  - network
 tags:
   - python
 github_url: "https://github.com/ainfosec/FISSURE"

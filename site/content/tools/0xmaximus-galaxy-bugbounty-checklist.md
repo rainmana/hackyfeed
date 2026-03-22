@@ -3,12 +3,12 @@ title: "Galaxy-Bugbounty-Checklist"
 date: 2026-03-22
 categories:
   - pentesting
-  - malware
-  - red-team
   - exploit
+  - red-team
+  - malware
 
 github_url: "https://github.com/0xmaximus/Galaxy-Bugbounty-Checklist"
-stars: 1774
+stars: 1775
 language: ""
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

@@ -2,9 +2,9 @@
 title: "Sec-Tools"
 date: 2026-03-22
 categories:
+  - pentesting
   - scanner
   - exploit
-  - pentesting
   - malware
 tags:
   - python

@@ -2,9 +2,9 @@
 title: "POC-bomber"
 date: 2026-03-22
 categories:
+  - exploit
   - red-team
   - scanner
-  - exploit
 tags:
   - python
 github_url: "https://github.com/tr0uble-mAker/POC-bomber"

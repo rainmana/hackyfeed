@@ -5,7 +5,7 @@ categories:
   - reverse-engineering
 
 github_url: "https://github.com/dsasmblr/game-hacking"
-stars: 5413
+stars: 5414
 language: ""
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

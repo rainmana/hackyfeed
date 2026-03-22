@@ -2,8 +2,8 @@
 title: "pi-pwnbox-rogueap"
 date: 2026-03-22
 categories:
-  - red-team
   - network
+  - red-team
 tags:
   - shell
 github_url: "https://github.com/koutto/pi-pwnbox-rogueap"

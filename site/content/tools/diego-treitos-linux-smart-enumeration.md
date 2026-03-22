@@ -2,8 +2,8 @@
 title: "linux-smart-enumeration"
 date: 2026-03-22
 categories:
-  - pentesting
   - malware
+  - pentesting
   - privilege-escalation
 tags:
   - shell

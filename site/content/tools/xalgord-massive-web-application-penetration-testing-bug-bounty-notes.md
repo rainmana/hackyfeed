@@ -2,8 +2,8 @@
 title: "Massive-Web-Application-Penetration-Testing-Bug-Bounty-Notes"
 date: 2026-03-22
 categories:
-  - malware
   - exploit
+  - malware
   - pentesting
 
 github_url: "https://github.com/xalgord/Massive-Web-Application-Penetration-Testing-Bug-Bounty-Notes"

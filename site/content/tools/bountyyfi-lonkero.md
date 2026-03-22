@@ -2,15 +2,15 @@
 title: "lonkero"
 date: 2026-03-22
 categories:
-  - web-security
+  - pentesting
   - scanner
   - exploit
-  - pentesting
   - malware
+  - web-security
 tags:
   - rust
 github_url: "https://github.com/bountyyfi/lonkero"
-stars: 822
+stars: 821
 language: "Rust"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

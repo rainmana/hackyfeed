@@ -5,7 +5,7 @@ categories:
   - reverse-engineering
 
 github_url: "https://github.com/WSTxda/QP-Gallery-Releases"
-stars: 2539
+stars: 2540
 language: ""
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

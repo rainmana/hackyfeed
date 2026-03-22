@@ -3,8 +3,8 @@ title: "sublert"
 date: 2026-03-22
 categories:
   - malware
-  - osint
   - pentesting
+  - osint
 tags:
   - python
 github_url: "https://github.com/yassineaboukir/sublert"

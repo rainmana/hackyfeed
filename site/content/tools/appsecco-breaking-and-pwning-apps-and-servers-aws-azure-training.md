@@ -2,9 +2,9 @@
 title: "breaking-and-pwning-apps-and-servers-aws-azure-training"
 date: 2026-03-22
 categories:
-  - cloud-security
-  - pentesting
   - malware
+  - pentesting
+  - cloud-security
 tags:
   - css
 github_url: "https://github.com/appsecco/breaking-and-pwning-apps-and-servers-aws-azure-training"

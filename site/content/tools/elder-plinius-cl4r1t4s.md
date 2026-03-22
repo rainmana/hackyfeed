@@ -5,7 +5,7 @@ categories:
   - red-team
 
 github_url: "https://github.com/elder-plinius/CL4R1T4S"
-stars: 13875
+stars: 13877
 language: ""
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

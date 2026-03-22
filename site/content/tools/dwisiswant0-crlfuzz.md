@@ -2,9 +2,9 @@
 title: "crlfuzz"
 date: 2026-03-22
 categories:
+  - web-security
   - scanner
   - exploit
-  - web-security
 tags:
   - go
 github_url: "https://github.com/dwisiswant0/crlfuzz"

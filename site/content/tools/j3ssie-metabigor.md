@@ -2,8 +2,8 @@
 title: "metabigor"
 date: 2026-03-22
 categories:
-  - osint
   - pentesting
+  - osint
 tags:
   - go
 github_url: "https://github.com/j3ssie/metabigor"

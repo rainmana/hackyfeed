@@ -2,8 +2,8 @@
 title: "hacking-online-games"
 date: 2026-03-22
 categories:
-  - reverse-engineering
   - malware
+  - reverse-engineering
 
 github_url: "https://github.com/dsasmblr/hacking-online-games"
 stars: 1807

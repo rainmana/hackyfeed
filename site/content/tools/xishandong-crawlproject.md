@@ -6,7 +6,7 @@ categories:
 tags:
   - javascript
 github_url: "https://github.com/xishandong/crawlProject"
-stars: 1676
+stars: 1677
 language: "JavaScript"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

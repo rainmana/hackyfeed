@@ -6,7 +6,7 @@ categories:
 tags:
   - typescript
 github_url: "https://github.com/undergroundwires/privacy.sexy"
-stars: 5470
+stars: 5472
 language: "TypeScript"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

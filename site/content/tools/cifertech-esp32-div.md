@@ -6,7 +6,7 @@ categories:
 tags:
   - c++
 github_url: "https://github.com/cifertech/ESP32-DIV"
-stars: 2669
+stars: 2671
 language: "C++"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

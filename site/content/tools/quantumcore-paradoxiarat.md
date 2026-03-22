@@ -2,9 +2,9 @@
 title: "paradoxiaRAT"
 date: 2026-03-22
 categories:
+  - red-team
   - malware
   - web-security
-  - red-team
 tags:
   - c
 github_url: "https://github.com/quantumcore/paradoxiaRAT"

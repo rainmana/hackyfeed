@@ -6,7 +6,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/NullArray/AutoSploit"
-stars: 5220
+stars: 5221
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

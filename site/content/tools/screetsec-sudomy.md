@@ -3,9 +3,9 @@ title: "Sudomy"
 date: 2026-03-22
 categories:
   - malware
+  - pentesting
   - osint
   - scanner
-  - pentesting
 tags:
   - shell
 github_url: "https://github.com/screetsec/Sudomy"

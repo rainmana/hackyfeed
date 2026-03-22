@@ -2,9 +2,9 @@
 title: "EvilOSX"
 date: 2026-03-22
 categories:
+  - pentesting
   - post-exploitation
   - exploit
-  - pentesting
   - malware
 tags:
   - python

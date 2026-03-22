@@ -6,7 +6,7 @@ categories:
 tags:
   - javascript
 github_url: "https://github.com/dembrandt/dembrandt"
-stars: 1540
+stars: 1542
 language: "JavaScript"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

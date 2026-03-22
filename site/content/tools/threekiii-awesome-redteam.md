@@ -3,8 +3,8 @@ title: "Awesome-Redteam"
 date: 2026-03-22
 categories:
   - privilege-escalation
-  - exploit
   - post-exploitation
+  - exploit
   - red-team
   - osint
 tags:

@@ -6,7 +6,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/CarterPerez-dev/Cybersecurity-Projects"
-stars: 1255
+stars: 1261
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

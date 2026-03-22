@@ -2,9 +2,9 @@
 title: "moonwalk"
 date: 2026-03-22
 categories:
+  - privilege-escalation
   - exploit
   - red-team
-  - privilege-escalation
 tags:
   - rust
 github_url: "https://github.com/mufeedvh/moonwalk"

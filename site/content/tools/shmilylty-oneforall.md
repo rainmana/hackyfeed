@@ -2,14 +2,14 @@
 title: "OneForAll"
 date: 2026-03-22
 categories:
+  - pentesting
   - osint
   - scanner
-  - pentesting
   - malware
 tags:
   - python
 github_url: "https://github.com/shmilylty/OneForAll"
-stars: 9680
+stars: 9682
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

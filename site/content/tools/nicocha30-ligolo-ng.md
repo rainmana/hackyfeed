@@ -2,10 +2,10 @@
 title: "ligolo-ng"
 date: 2026-03-22
 categories:
-  - post-exploitation
-  - red-team
-  - exploit
   - pentesting
+  - post-exploitation
+  - exploit
+  - red-team
 tags:
   - go
 github_url: "https://github.com/nicocha30/ligolo-ng"

@@ -6,7 +6,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/apurvsinghgautam/robin"
-stars: 4531
+stars: 4537
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

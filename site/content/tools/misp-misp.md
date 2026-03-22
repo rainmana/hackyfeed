@@ -2,8 +2,8 @@
 title: "MISP"
 date: 2026-03-22
 categories:
-  - malware
   - osint
+  - malware
 tags:
   - php
 github_url: "https://github.com/MISP/MISP"

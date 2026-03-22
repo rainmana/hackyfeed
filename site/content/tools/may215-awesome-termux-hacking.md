@@ -4,8 +4,8 @@ date: 2026-03-22
 categories:
   - malware
   - network
-  - osint
   - pentesting
+  - osint
 
 github_url: "https://github.com/may215/awesome-termux-hacking"
 stars: 4440

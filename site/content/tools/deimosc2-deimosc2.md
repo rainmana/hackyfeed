@@ -2,8 +2,8 @@
 title: "DeimosC2"
 date: 2026-03-22
 categories:
-  - exploit
   - post-exploitation
+  - exploit
   - red-team
 tags:
   - vue

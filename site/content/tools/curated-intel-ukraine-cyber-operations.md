@@ -2,8 +2,8 @@
 title: "Ukraine-Cyber-Operations"
 date: 2026-03-22
 categories:
-  - osint
   - malware
+  - osint
 tags:
   - yara
 github_url: "https://github.com/curated-intel/Ukraine-Cyber-Operations"

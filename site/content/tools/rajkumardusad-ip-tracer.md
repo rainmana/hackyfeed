@@ -6,7 +6,7 @@ categories:
 tags:
   - php
 github_url: "https://github.com/rajkumardusad/IP-Tracer"
-stars: 2818
+stars: 2819
 language: "PHP"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

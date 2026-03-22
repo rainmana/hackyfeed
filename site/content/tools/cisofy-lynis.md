@@ -7,7 +7,7 @@ categories:
 tags:
   - shell
 github_url: "https://github.com/CISOfy/lynis"
-stars: 15419
+stars: 15422
 language: "Shell"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

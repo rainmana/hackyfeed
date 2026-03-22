@@ -6,7 +6,7 @@ categories:
 tags:
   - rust
 github_url: "https://github.com/io12/pwninit"
-stars: 1082
+stars: 1083
 language: "Rust"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

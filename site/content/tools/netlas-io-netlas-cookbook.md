@@ -2,8 +2,8 @@
 title: "netlas-cookbook"
 date: 2026-03-22
 categories:
-  - osint
   - pentesting
+  - osint
 tags:
   - python
 github_url: "https://github.com/netlas-io/netlas-cookbook"

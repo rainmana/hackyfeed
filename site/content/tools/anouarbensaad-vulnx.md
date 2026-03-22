@@ -2,10 +2,10 @@
 title: "vulnx"
 date: 2026-03-22
 categories:
-  - exploit
-  - pentesting
-  - web-security
   - scanner
+  - exploit
+  - web-security
+  - pentesting
 tags:
   - python
 github_url: "https://github.com/anouarbensaad/vulnx"

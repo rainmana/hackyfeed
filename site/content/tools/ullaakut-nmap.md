@@ -2,10 +2,10 @@
 title: "nmap"
 date: 2026-03-22
 categories:
-  - scanner
-  - pentesting
   - malware
   - network
+  - pentesting
+  - scanner
 tags:
   - go
 github_url: "https://github.com/Ullaakut/nmap"

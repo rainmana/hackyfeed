@@ -3,9 +3,9 @@ title: "Cloakify"
 date: 2026-03-22
 categories:
   - pentesting
+  - red-team
   - malware
   - cryptography
-  - red-team
 tags:
   - python
 github_url: "https://github.com/TryCatchHCF/Cloakify"

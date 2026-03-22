@@ -2,10 +2,10 @@
 title: "ScopeSentry"
 date: 2026-03-22
 categories:
-  - scanner
-  - exploit
   - malware
   - osint
+  - scanner
+  - exploit
 tags:
   - go
 github_url: "https://github.com/Autumn-27/ScopeSentry"

@@ -2,8 +2,8 @@
 title: "KubeHound"
 date: 2026-03-22
 categories:
-  - red-team
   - exploit
+  - red-team
 tags:
   - go
 github_url: "https://github.com/DataDog/KubeHound"

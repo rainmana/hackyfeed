@@ -2,9 +2,9 @@
 title: "sectemplates"
 date: 2026-03-22
 categories:
-  - pentesting
   - malware
   - forensics
+  - pentesting
   - exploit
 
 github_url: "https://github.com/securitytemplates/sectemplates"

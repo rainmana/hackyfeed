@@ -3,9 +3,9 @@ title: "n0kovo_subdomains"
 date: 2026-03-22
 categories:
   - scanner
-  - pentesting
-  - malware
   - red-team
+  - malware
+  - pentesting
   - osint
 
 github_url: "https://github.com/n0kovo/n0kovo_subdomains"

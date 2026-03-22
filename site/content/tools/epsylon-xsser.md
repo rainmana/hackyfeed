@@ -2,8 +2,8 @@
 title: "xsser"
 date: 2026-03-22
 categories:
-  - exploit
   - pentesting
+  - exploit
   - web-security
 tags:
   - python

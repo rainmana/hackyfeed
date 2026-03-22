@@ -2,10 +2,10 @@
 title: "username-anarchy"
 date: 2026-03-22
 categories:
-  - malware
   - red-team
-  - osint
+  - malware
   - pentesting
+  - osint
 tags:
   - ruby
 github_url: "https://github.com/urbanadventurer/username-anarchy"

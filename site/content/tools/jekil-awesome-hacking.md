@@ -2,9 +2,9 @@
 title: "awesome-hacking"
 date: 2026-03-22
 categories:
+  - malware
   - forensics
   - pentesting
-  - malware
 tags:
   - python
 github_url: "https://github.com/jekil/awesome-hacking"

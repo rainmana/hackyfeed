@@ -7,7 +7,7 @@ categories:
 tags:
   - shell
 github_url: "https://github.com/opensemanticsearch/open-semantic-search"
-stars: 1155
+stars: 1156
 language: "Shell"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

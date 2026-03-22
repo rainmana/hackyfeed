@@ -2,9 +2,9 @@
 title: "jok3r"
 date: 2026-03-22
 categories:
-  - network
   - scanner
   - exploit
+  - network
   - pentesting
 tags:
   - html

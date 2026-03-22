@@ -2,13 +2,13 @@
 title: "jadx-ai-mcp"
 date: 2026-03-22
 categories:
+  - reverse-engineering
   - malware
   - pentesting
-  - reverse-engineering
 tags:
   - java
 github_url: "https://github.com/zinja-coder/jadx-ai-mcp"
-stars: 1519
+stars: 1521
 language: "Java"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

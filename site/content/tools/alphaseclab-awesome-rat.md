@@ -2,8 +2,8 @@
 title: "awesome-rat"
 date: 2026-03-22
 categories:
-  - red-team
   - malware
+  - red-team
 
 github_url: "https://github.com/alphaSeclab/awesome-rat"
 stars: 2184

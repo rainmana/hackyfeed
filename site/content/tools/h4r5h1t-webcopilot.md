@@ -2,10 +2,10 @@
 title: "webcopilot"
 date: 2026-03-22
 categories:
-  - osint
   - scanner
   - malware
   - web-security
+  - osint
 tags:
   - shell
 github_url: "https://github.com/h4r5h1t/webcopilot"

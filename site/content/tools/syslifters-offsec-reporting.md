@@ -2,9 +2,9 @@
 title: "OffSec-Reporting"
 date: 2026-03-22
 categories:
-  - pentesting
-  - malware
   - red-team
+  - malware
+  - pentesting
 
 github_url: "https://github.com/Syslifters/OffSec-Reporting"
 stars: 907

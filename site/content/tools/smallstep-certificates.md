@@ -6,7 +6,7 @@ categories:
 tags:
   - go
 github_url: "https://github.com/smallstep/certificates"
-stars: 8350
+stars: 8351
 language: "Go"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

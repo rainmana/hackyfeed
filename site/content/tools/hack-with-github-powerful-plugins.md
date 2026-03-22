@@ -2,8 +2,8 @@
 title: "Powerful-Plugins"
 date: 2026-03-22
 categories:
-  - web-security
   - osint
+  - web-security
 
 github_url: "https://github.com/Hack-with-Github/Powerful-Plugins"
 stars: 891

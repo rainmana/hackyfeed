@@ -2,12 +2,12 @@
 title: "Awesome-Blackhat-Tools"
 date: 2026-03-22
 categories:
-  - malware
-  - red-team
-  - osint
-  - forensics
   - pentesting
+  - osint
+  - red-team
   - reverse-engineering
+  - malware
+  - forensics
 
 github_url: "https://github.com/UCYBERS/Awesome-Blackhat-Tools"
 stars: 780

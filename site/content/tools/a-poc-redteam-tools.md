@@ -2,12 +2,12 @@
 title: "RedTeam-Tools"
 date: 2026-03-22
 categories:
-  - pentesting
-  - malware
   - red-team
+  - malware
+  - pentesting
 
 github_url: "https://github.com/A-poc/RedTeam-Tools"
-stars: 8592
+stars: 8593
 language: ""
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

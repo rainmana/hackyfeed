@@ -4,9 +4,9 @@ date: 2026-03-22
 categories:
   - scanner
   - exploit
+  - red-team
   - malware
   - web-security
-  - red-team
 tags:
   - typescript
 github_url: "https://github.com/lunasec-io/lunasec"

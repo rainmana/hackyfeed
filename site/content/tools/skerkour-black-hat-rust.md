@@ -3,9 +3,9 @@ title: "black-hat-rust"
 date: 2026-03-22
 categories:
   - red-team
-  - scanner
-  - pentesting
   - malware
+  - pentesting
+  - scanner
 tags:
   - rust
 github_url: "https://github.com/skerkour/black-hat-rust"

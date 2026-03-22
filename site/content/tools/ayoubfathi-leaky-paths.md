@@ -2,10 +2,10 @@
 title: "leaky-paths"
 date: 2026-03-22
 categories:
-  - red-team
+  - pentesting
   - osint
   - scanner
-  - pentesting
+  - red-team
   - malware
 
 github_url: "https://github.com/ayoubfathi/leaky-paths"

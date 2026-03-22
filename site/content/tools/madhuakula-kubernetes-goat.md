@@ -2,8 +2,8 @@
 title: "kubernetes-goat"
 date: 2026-03-22
 categories:
-  - red-team
   - cloud-security
+  - red-team
   - pentesting
 tags:
   - html

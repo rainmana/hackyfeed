@@ -2,8 +2,8 @@
 title: "Burp-Suite-Certified-Practitioner-Exam-Study"
 date: 2026-03-22
 categories:
-  - pentesting
   - web-security
+  - pentesting
   - exploit
 tags:
   - python

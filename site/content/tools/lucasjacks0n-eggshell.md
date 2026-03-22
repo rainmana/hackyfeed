@@ -2,9 +2,9 @@
 title: "EggShell"
 date: 2026-03-22
 categories:
-  - exploit
-  - pentesting
   - malware
+  - pentesting
+  - exploit
 tags:
   - objective-c
 github_url: "https://github.com/lucasjacks0n/EggShell"

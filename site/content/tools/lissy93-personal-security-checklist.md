@@ -6,7 +6,7 @@ categories:
 tags:
   - typescript
 github_url: "https://github.com/Lissy93/personal-security-checklist"
-stars: 20989
+stars: 20993
 language: "TypeScript"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

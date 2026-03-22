@@ -2,8 +2,8 @@
 title: "geowifi"
 date: 2026-03-22
 categories:
-  - network
   - osint
+  - network
 tags:
   - python
 github_url: "https://github.com/GONZOsint/geowifi"

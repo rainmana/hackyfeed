@@ -2,10 +2,10 @@
 title: "K8CScan"
 date: 2026-03-22
 categories:
-  - red-team
+  - pentesting
   - scanner
   - exploit
-  - pentesting
+  - red-team
 tags:
   - python
 github_url: "https://github.com/k8gege/K8CScan"

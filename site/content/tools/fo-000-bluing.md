@@ -2,8 +2,8 @@
 title: "bluing"
 date: 2026-03-22
 categories:
-  - osint
   - scanner
+  - osint
 tags:
   - python
 github_url: "https://github.com/fO-000/bluing"

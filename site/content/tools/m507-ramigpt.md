@@ -2,8 +2,8 @@
 title: "RamiGPT"
 date: 2026-03-22
 categories:
-  - malware
   - privilege-escalation
+  - malware
 tags:
   - shell
 github_url: "https://github.com/M507/RamiGPT"

@@ -6,7 +6,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/0x0be/yesitsme"
-stars: 2621
+stars: 2624
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

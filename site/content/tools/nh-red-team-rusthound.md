@@ -2,9 +2,9 @@
 title: "RustHound"
 date: 2026-03-22
 categories:
-  - pentesting
-  - network
   - red-team
+  - network
+  - pentesting
 tags:
   - rust
 github_url: "https://github.com/NH-RED-TEAM/RustHound"

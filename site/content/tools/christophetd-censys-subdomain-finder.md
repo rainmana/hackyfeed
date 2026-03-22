@@ -2,10 +2,10 @@
 title: "censys-subdomain-finder"
 date: 2026-03-22
 categories:
-  - scanner
-  - pentesting
   - malware
+  - pentesting
   - osint
+  - scanner
 tags:
   - python
 github_url: "https://github.com/christophetd/censys-subdomain-finder"

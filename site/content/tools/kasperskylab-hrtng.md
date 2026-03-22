@@ -2,9 +2,9 @@
 title: "hrtng"
 date: 2026-03-22
 categories:
-  - cryptography
   - reverse-engineering
   - malware
+  - cryptography
 tags:
   - c++
 github_url: "https://github.com/KasperskyLab/hrtng"

@@ -2,11 +2,11 @@
 title: "GDA-android-reversing-Tool"
 date: 2026-03-22
 categories:
+  - exploit
   - reverse-engineering
   - malware
   - cryptography
   - scanner
-  - exploit
 tags:
   - java
 github_url: "https://github.com/charles2gan/GDA-android-reversing-Tool"

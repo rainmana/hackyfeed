@@ -2,8 +2,8 @@
 title: "crawlergo"
 date: 2026-03-22
 categories:
-  - exploit
   - scanner
+  - exploit
 tags:
   - go
 github_url: "https://github.com/Qianlitp/crawlergo"

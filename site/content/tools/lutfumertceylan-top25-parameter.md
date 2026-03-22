@@ -2,10 +2,10 @@
 title: "top25-parameter"
 date: 2026-03-22
 categories:
-  - exploit
-  - pentesting
   - web-security
+  - pentesting
   - osint
+  - exploit
 
 github_url: "https://github.com/lutfumertceylan/top25-parameter"
 stars: 1823

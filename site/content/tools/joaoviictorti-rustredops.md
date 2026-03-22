@@ -2,8 +2,8 @@
 title: "RustRedOps"
 date: 2026-03-22
 categories:
-  - red-team
   - malware
+  - red-team
 tags:
   - rust
 github_url: "https://github.com/joaoviictorti/RustRedOps"

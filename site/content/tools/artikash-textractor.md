@@ -6,7 +6,7 @@ categories:
 tags:
   - c++
 github_url: "https://github.com/Artikash/Textractor"
-stars: 2574
+stars: 2575
 language: "C++"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

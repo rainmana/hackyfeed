@@ -2,10 +2,10 @@
 title: "Reconnoitre"
 date: 2026-03-22
 categories:
+  - malware
+  - pentesting
   - osint
   - scanner
-  - pentesting
-  - malware
 tags:
   - python
 github_url: "https://github.com/codingo/Reconnoitre"

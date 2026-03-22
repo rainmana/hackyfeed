@@ -3,9 +3,9 @@ title: "inventory"
 date: 2026-03-22
 categories:
   - red-team
-  - osint
-  - pentesting
   - malware
+  - pentesting
+  - osint
 tags:
   - shell
 github_url: "https://github.com/trickest/inventory"

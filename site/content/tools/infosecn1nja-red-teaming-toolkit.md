@@ -2,8 +2,8 @@
 title: "Red-Teaming-Toolkit"
 date: 2026-03-22
 categories:
-  - pentesting
   - red-team
+  - pentesting
 
 github_url: "https://github.com/infosecn1nja/Red-Teaming-Toolkit"
 stars: 10196

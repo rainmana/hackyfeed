@@ -2,8 +2,8 @@
 title: "wireless-carplay-dongle-reverse-engineering"
 date: 2026-03-22
 categories:
-  - reverse-engineering
   - network
+  - reverse-engineering
 tags:
   - shell
 github_url: "https://github.com/ludwig-v/wireless-carplay-dongle-reverse-engineering"

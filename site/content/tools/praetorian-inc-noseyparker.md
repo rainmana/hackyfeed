@@ -2,9 +2,9 @@
 title: "noseyparker"
 date: 2026-03-22
 categories:
-  - scanner
-  - pentesting
   - malware
+  - pentesting
+  - scanner
 tags:
   - rust
 github_url: "https://github.com/praetorian-inc/noseyparker"

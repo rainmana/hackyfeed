@@ -2,8 +2,8 @@
 title: "w13scan"
 date: 2026-03-22
 categories:
-  - scanner
   - exploit
+  - scanner
 tags:
   - smarty
 github_url: "https://github.com/w-digital-scanner/w13scan"

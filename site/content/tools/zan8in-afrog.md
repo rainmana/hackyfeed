@@ -2,11 +2,11 @@
 title: "afrog"
 date: 2026-03-22
 categories:
-  - red-team
-  - scanner
   - exploit
-  - pentesting
+  - red-team
   - malware
+  - pentesting
+  - scanner
 tags:
   - go
 github_url: "https://github.com/zan8in/afrog"

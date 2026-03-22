@@ -2,14 +2,14 @@
 title: "GTFOBins.github.io"
 date: 2026-03-22
 categories:
-  - exploit
-  - malware
   - post-exploitation
+  - exploit
   - red-team
+  - malware
 tags:
   - yaml
 github_url: "https://github.com/GTFOBins/GTFOBins.github.io"
-stars: 12824
+stars: 12826
 language: "YAML"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

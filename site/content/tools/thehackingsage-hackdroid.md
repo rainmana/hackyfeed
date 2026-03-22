@@ -2,11 +2,11 @@
 title: "hackdroid"
 date: 2026-03-22
 categories:
-  - pentesting
   - malware
   - network
   - cryptography
   - forensics
+  - pentesting
 
 github_url: "https://github.com/thehackingsage/hackdroid"
 stars: 1047

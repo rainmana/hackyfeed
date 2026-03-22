@@ -6,7 +6,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/fail2ban/fail2ban"
-stars: 17274
+stars: 17276
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

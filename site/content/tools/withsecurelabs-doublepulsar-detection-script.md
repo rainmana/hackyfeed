@@ -2,8 +2,8 @@
 title: "doublepulsar-detection-script"
 date: 2026-03-22
 categories:
-  - network
   - scanner
+  - network
 tags:
   - python
 github_url: "https://github.com/WithSecureLabs/doublepulsar-detection-script"

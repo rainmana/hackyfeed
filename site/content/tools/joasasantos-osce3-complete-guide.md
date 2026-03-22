@@ -5,7 +5,7 @@ categories:
   - security-tools
 
 github_url: "https://github.com/JoasASantos/OSCE3-Complete-Guide"
-stars: 3790
+stars: 3791
 language: ""
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

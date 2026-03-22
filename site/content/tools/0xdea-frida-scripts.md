@@ -6,7 +6,7 @@ categories:
 tags:
   - javascript
 github_url: "https://github.com/0xdea/frida-scripts"
-stars: 1574
+stars: 1575
 language: "JavaScript"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

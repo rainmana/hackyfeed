@@ -2,11 +2,11 @@
 title: "skanuvaty"
 date: 2026-03-22
 categories:
-  - osint
-  - scanner
-  - pentesting
   - malware
   - network
+  - pentesting
+  - osint
+  - scanner
   - red-team
 tags:
   - rust

@@ -2,17 +2,17 @@
 title: "Infosec_Reference"
 date: 2026-03-22
 categories:
+  - pentesting
+  - privilege-escalation
+  - exploit
+  - red-team
   - reverse-engineering
   - malware
-  - red-team
-  - privilege-escalation
   - forensics
-  - exploit
-  - pentesting
 tags:
   - css
 github_url: "https://github.com/rmusser01/Infosec_Reference"
-stars: 5924
+stars: 5925
 language: "CSS"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

@@ -6,7 +6,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/marin-m/pbtk"
-stars: 1640
+stars: 1641
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

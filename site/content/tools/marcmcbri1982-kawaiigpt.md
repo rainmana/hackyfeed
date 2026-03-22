@@ -2,8 +2,8 @@
 title: "KawaiiGPT"
 date: 2026-03-22
 categories:
-  - web-security
   - red-team
+  - web-security
   - pentesting
 tags:
   - python

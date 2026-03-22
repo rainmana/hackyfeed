@@ -2,9 +2,9 @@
 title: "remote-method-guesser"
 date: 2026-03-22
 categories:
+  - pentesting
   - scanner
   - exploit
-  - pentesting
 tags:
   - java
 github_url: "https://github.com/qtc-de/remote-method-guesser"

@@ -2,8 +2,8 @@
 title: "agentic-radar"
 date: 2026-03-22
 categories:
-  - red-team
   - scanner
+  - red-team
   - malware
 tags:
   - python

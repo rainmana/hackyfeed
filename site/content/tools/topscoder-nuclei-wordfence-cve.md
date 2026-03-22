@@ -2,9 +2,9 @@
 title: "nuclei-wordfence-cve"
 date: 2026-03-22
 categories:
+  - pentesting
   - scanner
   - exploit
-  - pentesting
 tags:
   - python
 github_url: "https://github.com/topscoder/nuclei-wordfence-cve"

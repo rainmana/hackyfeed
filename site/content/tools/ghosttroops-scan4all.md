@@ -2,14 +2,14 @@
 title: "scan4all"
 date: 2026-03-22
 categories:
+  - pentesting
   - osint
   - scanner
   - exploit
-  - pentesting
 tags:
   - go
 github_url: "https://github.com/GhostTroops/scan4all"
-stars: 5973
+stars: 5974
 language: "Go"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

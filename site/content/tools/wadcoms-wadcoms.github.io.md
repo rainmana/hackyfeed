@@ -3,10 +3,10 @@ title: "WADComs.github.io"
 date: 2026-03-22
 categories:
   - privilege-escalation
-  - exploit
-  - malware
   - post-exploitation
+  - exploit
   - red-team
+  - malware
 tags:
   - html
 github_url: "https://github.com/WADComs/WADComs.github.io"

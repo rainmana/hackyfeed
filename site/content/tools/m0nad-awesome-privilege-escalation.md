@@ -2,9 +2,9 @@
 title: "awesome-privilege-escalation"
 date: 2026-03-22
 categories:
-  - privilege-escalation
-  - pentesting
   - malware
+  - pentesting
+  - privilege-escalation
 
 github_url: "https://github.com/m0nad/awesome-privilege-escalation"
 stars: 1522

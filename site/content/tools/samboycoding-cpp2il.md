@@ -6,7 +6,7 @@ categories:
 tags:
   - c#
 github_url: "https://github.com/SamboyCoding/Cpp2IL"
-stars: 2307
+stars: 2306
 language: "C#"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

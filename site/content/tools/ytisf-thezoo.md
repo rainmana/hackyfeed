@@ -6,7 +6,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/ytisf/theZoo"
-stars: 12835
+stars: 12838
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

@@ -2,8 +2,8 @@
 title: "SwiftnessX"
 date: 2026-03-22
 categories:
-  - malware
   - pentesting
+  - malware
 tags:
   - javascript
 github_url: "https://github.com/ehrishirajsharma/SwiftnessX"

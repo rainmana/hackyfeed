@@ -2,10 +2,10 @@
 title: "CloudFail"
 date: 2026-03-22
 categories:
-  - pentesting
-  - network
   - osint
   - scanner
+  - network
+  - pentesting
 tags:
   - python
 github_url: "https://github.com/m0rtem/CloudFail"

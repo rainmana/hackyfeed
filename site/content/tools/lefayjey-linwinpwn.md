@@ -3,13 +3,13 @@ title: "linWinPwn"
 date: 2026-03-22
 categories:
   - exploit
-  - pentesting
   - malware
   - network
+  - pentesting
 tags:
   - shell
 github_url: "https://github.com/lefayjey/linWinPwn"
-stars: 2157
+stars: 2158
 language: "Shell"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

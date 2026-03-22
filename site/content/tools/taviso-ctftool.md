@@ -2,8 +2,8 @@
 title: "ctftool"
 date: 2026-03-22
 categories:
-  - reverse-engineering
   - malware
+  - reverse-engineering
 tags:
   - c
 github_url: "https://github.com/taviso/ctftool"

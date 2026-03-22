@@ -7,7 +7,7 @@ categories:
 tags:
   - go
 github_url: "https://github.com/alpkeskin/mosint"
-stars: 5757
+stars: 5759
 language: "Go"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

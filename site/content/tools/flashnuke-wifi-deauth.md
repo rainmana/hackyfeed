@@ -2,8 +2,8 @@
 title: "wifi-deauth"
 date: 2026-03-22
 categories:
-  - network
   - pentesting
+  - network
 tags:
   - python
 github_url: "https://github.com/flashnuke/wifi-deauth"

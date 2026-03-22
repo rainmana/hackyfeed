@@ -2,13 +2,13 @@
 title: "AI-Infra-Guard"
 date: 2026-03-22
 categories:
+  - red-team
   - scanner
   - exploit
-  - red-team
 tags:
   - python
 github_url: "https://github.com/Tencent/AI-Infra-Guard"
-stars: 3278
+stars: 3280
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

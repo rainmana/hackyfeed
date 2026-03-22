@@ -2,9 +2,9 @@
 title: "Terrapin-Scanner"
 date: 2026-03-22
 categories:
+  - scanner
   - exploit
   - cryptography
-  - scanner
 tags:
   - go
 github_url: "https://github.com/RUB-NDS/Terrapin-Scanner"

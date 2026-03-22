@@ -2,11 +2,11 @@
 title: "brutespray"
 date: 2026-03-22
 categories:
-  - network
-  - red-team
-  - scanner
   - pentesting
+  - scanner
+  - red-team
   - malware
+  - network
 tags:
   - go
 github_url: "https://github.com/x90skysn3k/brutespray"

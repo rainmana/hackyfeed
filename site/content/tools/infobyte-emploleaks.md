@@ -3,8 +3,8 @@ title: "emploleaks"
 date: 2026-03-22
 categories:
   - red-team
-  - osint
   - pentesting
+  - osint
 tags:
   - python
 github_url: "https://github.com/infobyte/emploleaks"

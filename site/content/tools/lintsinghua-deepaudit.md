@@ -2,12 +2,12 @@
 title: "DeepAudit"
 date: 2026-03-22
 categories:
-  - exploit
   - scanner
+  - exploit
 tags:
   - python
 github_url: "https://github.com/lintsinghua/DeepAudit"
-stars: 5377
+stars: 5381
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

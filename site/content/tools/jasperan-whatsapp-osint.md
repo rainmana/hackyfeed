@@ -6,7 +6,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/jasperan/whatsapp-osint"
-stars: 1285
+stars: 1286
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

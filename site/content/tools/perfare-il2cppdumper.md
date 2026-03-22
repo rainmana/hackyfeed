@@ -6,7 +6,7 @@ categories:
 tags:
   - c#
 github_url: "https://github.com/Perfare/Il2CppDumper"
-stars: 8762
+stars: 8764
 language: "C#"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

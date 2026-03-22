@@ -8,7 +8,7 @@ categories:
 tags:
   - open policy agent
 github_url: "https://github.com/Checkmarx/kics"
-stars: 2590
+stars: 2592
 language: "Open Policy Agent"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

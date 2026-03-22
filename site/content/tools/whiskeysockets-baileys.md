@@ -6,7 +6,7 @@ categories:
 tags:
   - javascript
 github_url: "https://github.com/WhiskeySockets/Baileys"
-stars: 8677
+stars: 8678
 language: "JavaScript"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

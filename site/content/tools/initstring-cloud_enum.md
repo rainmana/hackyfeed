@@ -2,9 +2,9 @@
 title: "cloud_enum"
 date: 2026-03-22
 categories:
-  - osint
-  - pentesting
   - malware
+  - pentesting
+  - osint
 tags:
   - python
 github_url: "https://github.com/initstring/cloud_enum"

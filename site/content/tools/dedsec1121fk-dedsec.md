@@ -2,11 +2,11 @@
 title: "DedSec"
 date: 2026-03-22
 categories:
-  - network
+  - pentesting
   - osint
   - exploit
-  - pentesting
   - malware
+  - network
 tags:
   - python
 github_url: "https://github.com/dedsec1121fk/DedSec"

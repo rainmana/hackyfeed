@@ -2,9 +2,9 @@
 title: "Corsy"
 date: 2026-03-22
 categories:
+  - exploit
   - malware
   - scanner
-  - exploit
 tags:
   - python
 github_url: "https://github.com/s0md3v/Corsy"

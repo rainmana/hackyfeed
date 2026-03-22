@@ -3,8 +3,8 @@ title: "hackerpro"
 date: 2026-03-22
 categories:
   - malware
-  - scanner
   - pentesting
+  - scanner
 tags:
   - python
 github_url: "https://github.com/jaykali/hackerpro"

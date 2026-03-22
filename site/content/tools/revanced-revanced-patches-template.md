@@ -6,7 +6,7 @@ categories:
 tags:
   - kotlin
 github_url: "https://github.com/ReVanced/revanced-patches-template"
-stars: 4643
+stars: 4644
 language: "Kotlin"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

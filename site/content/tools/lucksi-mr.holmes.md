@@ -6,7 +6,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/Lucksi/Mr.Holmes"
-stars: 3148
+stars: 3149
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

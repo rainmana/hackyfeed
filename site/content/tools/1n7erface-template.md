@@ -2,9 +2,9 @@
 title: "Template"
 date: 2026-03-22
 categories:
-  - malware
-  - red-team
   - scanner
+  - red-team
+  - malware
 
 github_url: "https://github.com/1n7erface/Template"
 stars: 1115

@@ -3,8 +3,8 @@ title: "ipranges"
 date: 2026-03-22
 categories:
   - osint
-  - pentesting
   - network
+  - pentesting
 tags:
   - shell
 github_url: "https://github.com/lord-alfred/ipranges"

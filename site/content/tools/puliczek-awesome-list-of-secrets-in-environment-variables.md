@@ -3,8 +3,8 @@ title: "awesome-list-of-secrets-in-environment-variables"
 date: 2026-03-22
 categories:
   - red-team
-  - exploit
   - pentesting
+  - exploit
 
 github_url: "https://github.com/Puliczek/awesome-list-of-secrets-in-environment-variables"
 stars: 902

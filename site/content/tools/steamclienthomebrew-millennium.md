@@ -6,7 +6,7 @@ categories:
 tags:
   - c++
 github_url: "https://github.com/SteamClientHomebrew/Millennium"
-stars: 3172
+stars: 3176
 language: "C++"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

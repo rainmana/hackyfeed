@@ -6,7 +6,7 @@ categories:
 tags:
   - objective-c
 github_url: "https://github.com/AloneMonkey/MonkeyDev"
-stars: 6779
+stars: 6780
 language: "Objective-C"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

@@ -2,14 +2,14 @@
 title: "Ciphey"
 date: 2026-03-22
 categories:
-  - pentesting
+  - osint
   - network
   - cryptography
-  - osint
+  - pentesting
 tags:
   - python
 github_url: "https://github.com/bee-san/Ciphey"
-stars: 21261
+stars: 21264
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

@@ -6,7 +6,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/syssec-utd/pylingual"
-stars: 1138
+stars: 1140
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

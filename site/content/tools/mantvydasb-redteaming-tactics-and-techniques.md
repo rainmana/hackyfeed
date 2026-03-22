@@ -2,8 +2,8 @@
 title: "RedTeaming-Tactics-and-Techniques"
 date: 2026-03-22
 categories:
-  - red-team
   - pentesting
+  - red-team
 tags:
   - powershell
 github_url: "https://github.com/mantvydasb/RedTeaming-Tactics-and-Techniques"

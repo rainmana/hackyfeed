@@ -6,7 +6,7 @@ categories:
 tags:
   - typescript
 github_url: "https://github.com/ericc-ch/copilot-api"
-stars: 3128
+stars: 3130
 language: "TypeScript"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

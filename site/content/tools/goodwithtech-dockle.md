@@ -6,7 +6,7 @@ categories:
 tags:
   - go
 github_url: "https://github.com/goodwithtech/dockle"
-stars: 3229
+stars: 3230
 language: "Go"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

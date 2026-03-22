@@ -3,8 +3,8 @@ title: "FilelessPELoader"
 date: 2026-03-22
 categories:
   - cryptography
-  - red-team
   - pentesting
+  - red-team
   - malware
 tags:
   - c++

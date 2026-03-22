@@ -2,8 +2,8 @@
 title: "TangledWinExec"
 date: 2026-03-22
 categories:
-  - reverse-engineering
   - red-team
+  - reverse-engineering
 tags:
   - c#
 github_url: "https://github.com/daem0nc0re/TangledWinExec"

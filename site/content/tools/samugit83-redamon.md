@@ -2,16 +2,16 @@
 title: "redamon"
 date: 2026-03-22
 categories:
-  - exploit
-  - pentesting
-  - malware
-  - post-exploitation
   - red-team
+  - malware
+  - pentesting
   - osint
+  - post-exploitation
+  - exploit
 tags:
   - python
 github_url: "https://github.com/samugit83/redamon"
-stars: 1628
+stars: 1629
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

@@ -2,8 +2,8 @@
 title: "Validity90"
 date: 2026-03-22
 categories:
-  - scanner
   - reverse-engineering
+  - scanner
 tags:
   - c
 github_url: "https://github.com/nmikhailov/Validity90"

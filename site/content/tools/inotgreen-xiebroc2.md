@@ -2,8 +2,8 @@
 title: "XiebroC2"
 date: 2026-03-22
 categories:
-  - red-team
   - pentesting
+  - red-team
 tags:
   - go
 github_url: "https://github.com/INotGreen/XiebroC2"

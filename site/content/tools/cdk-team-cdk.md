@@ -2,10 +2,10 @@
 title: "CDK"
 date: 2026-03-22
 categories:
-  - pentesting
-  - malware
-  - privilege-escalation
   - exploit
+  - malware
+  - pentesting
+  - privilege-escalation
 tags:
   - go
 github_url: "https://github.com/cdk-team/CDK"

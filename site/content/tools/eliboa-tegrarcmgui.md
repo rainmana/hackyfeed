@@ -6,7 +6,7 @@ categories:
 tags:
   - c++
 github_url: "https://github.com/eliboa/TegraRcmGUI"
-stars: 2213
+stars: 2214
 language: "C++"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

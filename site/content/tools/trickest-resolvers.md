@@ -2,8 +2,8 @@
 title: "resolvers"
 date: 2026-03-22
 categories:
-  - network
   - red-team
+  - network
   - pentesting
 
 github_url: "https://github.com/trickest/resolvers"

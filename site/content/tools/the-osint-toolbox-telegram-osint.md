@@ -5,7 +5,7 @@ categories:
   - osint
 
 github_url: "https://github.com/The-Osint-Toolbox/Telegram-OSINT"
-stars: 1711
+stars: 1712
 language: ""
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

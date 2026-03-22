@@ -6,7 +6,7 @@ categories:
 tags:
   - rust
 github_url: "https://github.com/zizmorcore/zizmor"
-stars: 3822
+stars: 3824
 language: "Rust"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

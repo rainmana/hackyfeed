@@ -2,9 +2,9 @@
 title: "CloudBrute"
 date: 2026-03-22
 categories:
-  - pentesting
-  - malware
   - red-team
+  - malware
+  - pentesting
   - cloud-security
 tags:
   - go

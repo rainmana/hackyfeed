@@ -2,8 +2,8 @@
 title: "PowerShell-for-Hackers"
 date: 2026-03-22
 categories:
-  - pentesting
   - malware
+  - pentesting
 tags:
   - powershell
 github_url: "https://github.com/I-Am-Jakoby/PowerShell-for-Hackers"

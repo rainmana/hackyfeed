@@ -2,16 +2,16 @@
 title: "awesome-hacker-search-engines"
 date: 2026-03-22
 categories:
-  - malware
-  - network
-  - red-team
   - osint
   - exploit
+  - red-team
+  - malware
+  - network
   - pentesting
 tags:
   - shell
 github_url: "https://github.com/edoardottt/awesome-hacker-search-engines"
-stars: 10345
+stars: 10347
 language: "Shell"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

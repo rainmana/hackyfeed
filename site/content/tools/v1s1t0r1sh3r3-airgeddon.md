@@ -2,12 +2,12 @@
 title: "airgeddon"
 date: 2026-03-22
 categories:
-  - pentesting
   - network
+  - pentesting
 tags:
   - shell
 github_url: "https://github.com/v1s1t0r1sh3r3/airgeddon"
-stars: 7579
+stars: 7580
 language: "Shell"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

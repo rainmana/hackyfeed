@@ -3,8 +3,8 @@ title: "PrivescCheck"
 date: 2026-03-22
 categories:
   - privilege-escalation
-  - pentesting
   - malware
+  - pentesting
 tags:
   - powershell
 github_url: "https://github.com/itm4n/PrivescCheck"

@@ -2,9 +2,9 @@
 title: "HackBrowserData"
 date: 2026-03-22
 categories:
+  - malware
   - cryptography
   - pentesting
-  - malware
 tags:
   - go
 github_url: "https://github.com/moonD4rk/HackBrowserData"

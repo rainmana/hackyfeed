@@ -6,7 +6,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/commaai/opendbc"
-stars: 2998
+stars: 3002
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

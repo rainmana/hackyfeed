@@ -6,7 +6,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/mxrch/GHunt"
-stars: 18597
+stars: 18599
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

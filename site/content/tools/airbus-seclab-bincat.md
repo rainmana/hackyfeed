@@ -2,9 +2,9 @@
 title: "bincat"
 date: 2026-03-22
 categories:
+  - reverse-engineering
   - malware
   - osint
-  - reverse-engineering
 tags:
   - ocaml
 github_url: "https://github.com/airbus-seclab/bincat"

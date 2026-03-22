@@ -2,9 +2,9 @@
 title: "opensquat"
 date: 2026-03-22
 categories:
+  - scanner
   - malware
   - osint
-  - scanner
 tags:
   - python
 github_url: "https://github.com/atenreiro/opensquat"

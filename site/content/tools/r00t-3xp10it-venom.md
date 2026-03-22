@@ -2,10 +2,10 @@
 title: "venom"
 date: 2026-03-22
 categories:
-  - malware
   - post-exploitation
-  - red-team
   - exploit
+  - red-team
+  - malware
 tags:
   - shell
 github_url: "https://github.com/r00t-3xp10it/venom"

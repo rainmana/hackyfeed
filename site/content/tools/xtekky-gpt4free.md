@@ -6,7 +6,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/xtekky/gpt4free"
-stars: 65831
+stars: 65838
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

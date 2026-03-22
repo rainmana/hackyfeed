@@ -6,7 +6,7 @@ categories:
 tags:
   - typescript
 github_url: "https://github.com/onecli/onecli"
-stars: 1007
+stars: 1025
 language: "TypeScript"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

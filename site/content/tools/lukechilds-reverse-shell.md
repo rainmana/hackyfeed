@@ -2,8 +2,8 @@
 title: "reverse-shell"
 date: 2026-03-22
 categories:
-  - exploit
   - pentesting
+  - exploit
 tags:
   - go
 github_url: "https://github.com/lukechilds/reverse-shell"

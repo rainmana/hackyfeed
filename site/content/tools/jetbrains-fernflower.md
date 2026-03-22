@@ -6,7 +6,7 @@ categories:
 tags:
   - java
 github_url: "https://github.com/JetBrains/fernflower"
-stars: 4208
+stars: 4209
 language: "Java"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

@@ -2,9 +2,9 @@
 title: "ServerScan"
 date: 2026-03-22
 categories:
-  - red-team
-  - scanner
   - pentesting
+  - scanner
+  - red-team
 tags:
   - go
 github_url: "https://github.com/Adminisme/ServerScan"

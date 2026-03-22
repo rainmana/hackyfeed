@@ -2,13 +2,13 @@
 title: "hollows_hunter"
 date: 2026-03-22
 categories:
-  - scanner
   - forensics
+  - scanner
   - malware
 tags:
   - c
 github_url: "https://github.com/hasherezade/hollows_hunter"
-stars: 2321
+stars: 2322
 language: "C"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

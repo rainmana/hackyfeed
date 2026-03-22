@@ -6,7 +6,7 @@ categories:
 tags:
   - c++
 github_url: "https://github.com/vaibhavpandeyvpz/apkstudio"
-stars: 3898
+stars: 3899
 language: "C++"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

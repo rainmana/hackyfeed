@@ -7,7 +7,7 @@ categories:
 tags:
   - python
 github_url: "https://github.com/korcankaraokcu/PINCE"
-stars: 2808
+stars: 2809
 language: "Python"
 install_instructions: "See GitHub repository for installation instructions."
 source: "github-topic"

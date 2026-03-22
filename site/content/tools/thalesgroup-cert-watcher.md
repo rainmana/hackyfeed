@@ -2,8 +2,8 @@
 title: "Watcher"
 date: 2026-03-22
 categories:
-  - osint
   - forensics
+  - osint
 tags:
   - javascript
 github_url: "https://github.com/thalesgroup-cert/Watcher"
