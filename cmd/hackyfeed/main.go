@@ -80,6 +80,13 @@ func main() {
 		}
 		log.Println("=== done ===")
 
+	case "reset":
+		count, err := db.ResetSummaries(database)
+		if err != nil {
+			log.Fatalf("reset: %v", err)
+		}
+		log.Printf("Reset %d repos — they will be re-summarized on next run", count)
+
 	default:
 		fmt.Printf("Unknown command: %s\n", os.Args[1])
 		os.Exit(1)

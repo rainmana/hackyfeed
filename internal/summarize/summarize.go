@@ -131,6 +131,13 @@ func FetchReadme(client *http.Client, fullName string) (string, error) {
 }
 
 func CallLLMWithRetry(client *http.Client, llm LLMConfig, systemPrompt, repoName, readme string) (string, error) {
+	// Normalize API base URL
+	base := strings.TrimRight(llm.APIBase, "/")
+	if !strings.HasSuffix(base, "/v1") {
+		base += "/v1"
+	}
+	normalized := LLMConfig{APIBase: base, APIKey: llm.APIKey, Model: llm.Model}
+
 	var lastErr error
 	for attempt := 0; attempt < 3; attempt++ {
 		if attempt > 0 {
@@ -138,7 +145,7 @@ func CallLLMWithRetry(client *http.Client, llm LLMConfig, systemPrompt, repoName
 			log.Printf("[summarize] retry %d for %s, waiting %v", attempt, repoName, wait)
 			time.Sleep(wait)
 		}
-		summary, retryable, err := callLLMOnce(client, llm, systemPrompt, repoName, readme)
+		summary, retryable, err := callLLMOnce(client, normalized, systemPrompt, repoName, readme)
 		if err == nil {
 			return summary, nil
 		}

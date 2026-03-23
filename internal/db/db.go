@@ -118,6 +118,15 @@ func MarkPublished(db *sql.DB, id int64) error {
 	return err
 }
 
+// ResetSummaries clears all summaries so they can be regenerated
+func ResetSummaries(db *sql.DB) (int64, error) {
+	r, err := db.Exec(`UPDATE repos SET ai_summary='', readme_raw='', summarized_at=NULL, published=0`)
+	if err != nil {
+		return 0, err
+	}
+	return r.RowsAffected()
+}
+
 func AllPublished(db *sql.DB) ([]Repo, error) {
 	rows, err := db.Query(`SELECT id, full_name, owner, name, description, html_url, stars, language, topics, first_seen, source, ai_summary, readme_raw FROM repos WHERE published = 1 ORDER BY first_seen DESC`)
 	if err != nil {

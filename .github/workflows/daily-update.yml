@@ -30,6 +30,9 @@ jobs:
       - name: Build CLI
         run: go build -o hackyfeed ./cmd/hackyfeed/
 
+      - name: Clean stale content
+        run: rm -f site/content/tools/*.md
+
       - name: Fetch repos
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
@@ -39,7 +42,7 @@ jobs:
         env:
           LLM_API_BASE: ${{ secrets.LLM_API_BASE }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
-          LLM_MODEL: ${{ vars.LLM_MODEL || 'gpt-4o-mini' }}
+          LLM_MODEL: gpt-4o-mini
         run: ./hackyfeed summarize
 
       - name: Generate Hugo content
