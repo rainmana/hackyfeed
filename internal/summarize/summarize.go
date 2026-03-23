@@ -39,8 +39,9 @@ type chatResp struct {
 
 type SummaryResult struct {
 	Summary string `json:"summary"`
-	Install string `json:"install"`
 }
+
+var readmePaths = []string{"README.md", "readme.md", "README.rst", "README", "Readme.md"}
 
 func Run(database *sql.DB, llm LLMConfig, cfg *config.SummarizeConfig) error {
 	repos, err := db.Unsummarized(database)
@@ -56,20 +57,17 @@ func Run(database *sql.DB, llm LLMConfig, cfg *config.SummarizeConfig) error {
 			if summary == "" {
 				summary = r.Name
 			}
-			db.SetSummary(database, r.ID, summary, "See GitHub repository for installation instructions.")
+			db.SetSummary(database, r.ID, summary, "")
 		}
 		return nil
 	}
 
-	// Apply batch limit
 	if cfg.BatchLimit > 0 && len(repos) > cfg.BatchLimit {
 		log.Printf("[summarize] batch limit %d, processing %d of %d", cfg.BatchLimit, cfg.BatchLimit, len(repos))
 		repos = repos[:cfg.BatchLimit]
 	}
 
-	// Resolve the system prompt template with tone
 	prompt := ResolvePrompt(cfg.SystemPrompt, cfg.Tone)
-
 	client := &http.Client{Timeout: 60 * time.Second}
 
 	for _, r := range repos {
@@ -80,22 +78,23 @@ func Run(database *sql.DB, llm LLMConfig, cfg *config.SummarizeConfig) error {
 			if summary == "" {
 				summary = r.Name
 			}
-			db.SetSummary(database, r.ID, summary, "See GitHub repository for installation instructions.")
+			db.SetSummary(database, r.ID, summary, "")
 			continue
 		}
 
-		if len(readme) > cfg.MaxReadmeChars {
-			readme = readme[:cfg.MaxReadmeChars]
+		// Truncate for AI but store full README
+		aiInput := readme
+		if len(aiInput) > cfg.MaxReadmeChars {
+			aiInput = aiInput[:cfg.MaxReadmeChars]
 		}
 
-		summary, install, err := CallLLM(client, llm, prompt, r.FullName, readme)
+		summary, err := CallLLM(client, llm, prompt, r.FullName, aiInput)
 		if err != nil {
 			log.Printf("[summarize] LLM error %s: %v, using description", r.FullName, err)
 			summary = r.Description
-			install = "See GitHub repository for installation instructions."
 		}
 
-		if err := db.SetSummary(database, r.ID, summary, install); err != nil {
+		if err := db.SetSummary(database, r.ID, summary, readme); err != nil {
 			log.Printf("[summarize] db error %s: %v", r.FullName, err)
 		}
 		log.Printf("[summarize] ✓ %s", r.FullName)
@@ -109,19 +108,21 @@ func ResolvePrompt(template, tone string) string {
 }
 
 func FetchReadme(client *http.Client, fullName string) (string, error) {
-	resp, err := client.Get(fmt.Sprintf("https://raw.githubusercontent.com/%s/HEAD/README.md", fullName))
-	if err != nil {
-		return "", err
+	for _, path := range readmePaths {
+		resp, err := client.Get(fmt.Sprintf("https://raw.githubusercontent.com/%s/HEAD/%s", fullName, path))
+		if err != nil {
+			continue
+		}
+		body, _ := io.ReadAll(resp.Body)
+		resp.Body.Close()
+		if resp.StatusCode == 200 && len(body) > 0 {
+			return string(body), nil
+		}
 	}
-	defer resp.Body.Close()
-	if resp.StatusCode != 200 {
-		return "", fmt.Errorf("status %d", resp.StatusCode)
-	}
-	b, err := io.ReadAll(resp.Body)
-	return string(b), err
+	return "", fmt.Errorf("no readme found")
 }
 
-func CallLLM(client *http.Client, llm LLMConfig, systemPrompt, repoName, readme string) (string, string, error) {
+func CallLLM(client *http.Client, llm LLMConfig, systemPrompt, repoName, readme string) (string, error) {
 	body, _ := json.Marshal(chatReq{
 		Model: llm.Model,
 		Messages: []msg{
@@ -138,33 +139,31 @@ func CallLLM(client *http.Client, llm LLMConfig, systemPrompt, repoName, readme 
 
 	resp, err := client.Do(req)
 	if err != nil {
-		return "", "", err
+		return "", err
 	}
 	defer resp.Body.Close()
 
 	respBody, _ := io.ReadAll(resp.Body)
 	if resp.StatusCode != 200 {
-		return "", "", fmt.Errorf("LLM API %d: %s", resp.StatusCode, string(respBody))
+		return "", fmt.Errorf("LLM API %d: %s", resp.StatusCode, string(respBody))
 	}
 
 	var cr chatResp
 	if err := json.Unmarshal(respBody, &cr); err != nil {
-		return "", "", err
+		return "", err
 	}
 	if len(cr.Choices) == 0 {
-		return "", "", fmt.Errorf("no choices returned")
+		return "", fmt.Errorf("no choices returned")
 	}
 
 	return ParseLLMResponse(cr.Choices[0].Message.Content)
 }
 
-func ParseLLMResponse(content string) (summary, install string, err error) {
+func ParseLLMResponse(content string) (string, error) {
 	var result SummaryResult
 	if err := json.Unmarshal([]byte(content), &result); err != nil {
-		return content, "See GitHub repository for installation instructions.", nil
+		// LLM returned plain text, use as-is
+		return content, nil
 	}
-	if result.Install == "" {
-		result.Install = "See GitHub repository for installation instructions."
-	}
-	return result.Summary, result.Install, nil
+	return result.Summary, nil
 }

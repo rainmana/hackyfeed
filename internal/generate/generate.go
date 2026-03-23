@@ -69,6 +69,19 @@ func RenderToolMarkdown(r db.Repo, cfg *config.CategoriesConfig) string {
 		tagYAML = fmt.Sprintf("tags:\n  - %s", strings.ToLower(r.Language))
 	}
 
+	// Build the body: AI summary at top, then full README
+	var body strings.Builder
+	if r.AISummary != "" {
+		body.WriteString("> **AI Summary:** ")
+		body.WriteString(r.AISummary)
+		body.WriteString("\n\n---\n\n")
+	}
+	if r.ReadmeRaw != "" {
+		body.WriteString(r.ReadmeRaw)
+	} else {
+		body.WriteString(r.Description)
+	}
+
 	return fmt.Sprintf(`---
 title: "%s"
 date: %s
@@ -78,21 +91,19 @@ categories:
 github_url: "%s"
 stars: %d
 language: "%s"
-install_instructions: "%s"
 source: "%s"
 ---
 
 %s
-`, escape(r.Name), r.FirstSeen.Format("2006-01-02"),
+`, escapeYAML(r.Name), r.FirstSeen.Format("2006-01-02"),
 		catYAML, tagYAML,
-		r.HTMLURL, r.Stars, r.Language,
-		escape(r.InstallInstructions), r.Source,
-		r.AISummary)
+		r.HTMLURL, r.Stars, r.Language, r.Source,
+		body.String())
 }
 
-func escape(s string) string {
+func escapeYAML(s string) string {
 	s = strings.ReplaceAll(s, `"`, `\"`)
-	s = strings.ReplaceAll(s, "\n", `\n`)
+	s = strings.ReplaceAll(s, "\n", " ")
 	return s
 }
 

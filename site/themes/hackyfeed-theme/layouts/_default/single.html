@@ -11,13 +11,6 @@
 
   <div class="content">{{ .Content }}</div>
 
-  {{ with .Params.install_instructions }}
-  <div class="install-box">
-    <h3>$ install</h3>
-    <pre><code>{{ . }}</code></pre>
-  </div>
-  {{ end }}
-
   <div class="tool-tags" style="margin-top:1.5rem;">
     {{ range .Params.categories }}<a class="tag" href="{{ "categories/" | relURL }}{{ . | urlize }}/">{{ . }}</a> {{ end }}
     {{ range .Params.tags }}<a class="tag" href="{{ "tags/" | relURL }}{{ . | urlize }}/">{{ . }}</a> {{ end }}

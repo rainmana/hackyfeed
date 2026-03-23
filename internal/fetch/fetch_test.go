@@ -81,3 +81,23 @@ func TestReGHLinkRegex(t *testing.T) {
 		}
 	}
 }
+
+func TestIsLikelyEnglish(t *testing.T) {
+	tests := []struct {
+		input    string
+		expected bool
+	}{
+		{"A pentesting tool for networks", true},
+		{"", true},
+		{"工具描述在这里", false},
+		{"Инструмент для тестирования", false},
+		{"Tool with some émojis 🔥", true},
+		{"Mixed 中文 and English text here for testing", true}, // >70% ASCII
+	}
+	for _, tt := range tests {
+		got := IsLikelyEnglish(tt.input)
+		if got != tt.expected {
+			t.Errorf("IsLikelyEnglish(%q) = %v, want %v", tt.input, got, tt.expected)
+		}
+	}
+}

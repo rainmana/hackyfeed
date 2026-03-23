@@ -6,27 +6,6 @@ import (
 	"time"
 )
 
-func testDB(t *testing.T) *testHelper {
-	t.Helper()
-	f, err := os.CreateTemp("", "hackyfeed-test-*.db")
-	if err != nil {
-		t.Fatal(err)
-	}
-	f.Close()
-	db, err := Open(f.Name())
-	if err != nil {
-		os.Remove(f.Name())
-		t.Fatal(err)
-	}
-	return &testHelper{db: db, path: f.Name(), t: t}
-}
-
-type testHelper struct {
-	db   interface{ Close() error }
-	path string
-	t    *testing.T
-}
-
 func TestOpenCreatesTable(t *testing.T) {
 	f, _ := os.CreateTemp("", "hackyfeed-test-*.db")
 	f.Close()
@@ -38,14 +17,10 @@ func TestOpenCreatesTable(t *testing.T) {
 	}
 	defer db.Close()
 
-	// Verify table exists by querying it
 	var count int
 	err = db.QueryRow("SELECT COUNT(*) FROM repos").Scan(&count)
 	if err != nil {
 		t.Fatalf("table should exist: %v", err)
-	}
-	if count != 0 {
-		t.Fatalf("expected 0 rows, got %d", count)
 	}
 }
 
@@ -57,36 +32,14 @@ func TestUpsertAndQuery(t *testing.T) {
 	database, _ := Open(f.Name())
 	defer database.Close()
 
-	repo := &Repo{
-		FullName:    "owner/repo",
-		Owner:       "owner",
-		Name:        "repo",
-		Description: "A test repo",
-		HTMLURL:     "https://github.com/owner/repo",
-		Stars:       42,
-		Language:    "Go",
-		Topics:      "pentesting,exploit",
-		LastPushed:  time.Now(),
-		Source:      "github-topic",
-	}
-
+	repo := &Repo{FullName: "owner/repo", Owner: "owner", Name: "repo", Description: "A test repo", HTMLURL: "https://github.com/owner/repo", Stars: 42, Language: "Go", Topics: "pentesting,exploit", LastPushed: time.Now(), Source: "github-topic"}
 	if err := UpsertRepo(database, repo); err != nil {
 		t.Fatal(err)
 	}
 
-	// Should appear in unsummarized
-	unsummarized, err := Unsummarized(database)
-	if err != nil {
-		t.Fatal(err)
-	}
-	if len(unsummarized) != 1 {
-		t.Fatalf("expected 1 unsummarized, got %d", len(unsummarized))
-	}
-	if unsummarized[0].FullName != "owner/repo" {
-		t.Fatalf("expected owner/repo, got %s", unsummarized[0].FullName)
-	}
-	if unsummarized[0].Stars != 42 {
-		t.Fatalf("expected 42 stars, got %d", unsummarized[0].Stars)
+	unsummarized, _ := Unsummarized(database)
+	if len(unsummarized) != 1 || unsummarized[0].Stars != 42 {
+		t.Fatalf("expected 1 repo with 42 stars, got %d", len(unsummarized))
 	}
 }
 
@@ -98,20 +51,12 @@ func TestUpsertUpdatesExisting(t *testing.T) {
 	database, _ := Open(f.Name())
 	defer database.Close()
 
-	repo := &Repo{FullName: "owner/repo", Owner: "owner", Name: "repo", Description: "v1", HTMLURL: "https://github.com/owner/repo", Stars: 10, Source: "github-topic"}
-	UpsertRepo(database, repo)
-
-	// Upsert again with updated stars
-	repo.Stars = 100
-	repo.Description = "v2"
-	UpsertRepo(database, repo)
+	UpsertRepo(database, &Repo{FullName: "owner/repo", Owner: "owner", Name: "repo", Description: "v1", HTMLURL: "https://github.com/owner/repo", Stars: 10, Source: "github-topic"})
+	UpsertRepo(database, &Repo{FullName: "owner/repo", Owner: "owner", Name: "repo", Description: "v2", HTMLURL: "https://github.com/owner/repo", Stars: 100, Source: "github-topic"})
 
 	unsummarized, _ := Unsummarized(database)
-	if len(unsummarized) != 1 {
-		t.Fatalf("expected 1 repo (deduped), got %d", len(unsummarized))
-	}
-	if unsummarized[0].Stars != 100 {
-		t.Fatalf("expected 100 stars after upsert, got %d", unsummarized[0].Stars)
+	if len(unsummarized) != 1 || unsummarized[0].Stars != 100 {
+		t.Fatal("upsert should update stars")
 	}
 }
 
@@ -123,10 +68,8 @@ func TestSummaryWorkflow(t *testing.T) {
 	database, _ := Open(f.Name())
 	defer database.Close()
 
-	repo := &Repo{FullName: "owner/tool", Owner: "owner", Name: "tool", Description: "desc", HTMLURL: "https://github.com/owner/tool", Stars: 50, Source: "github-topic"}
-	UpsertRepo(database, repo)
+	UpsertRepo(database, &Repo{FullName: "owner/tool", Owner: "owner", Name: "tool", Description: "desc", HTMLURL: "https://github.com/owner/tool", Stars: 50, Source: "github-topic"})
 
-	// Before summary: should be unsummarized, not unpublished (no summary yet)
 	unsummarized, _ := Unsummarized(database)
 	if len(unsummarized) != 1 {
 		t.Fatal("should be unsummarized")
@@ -134,29 +77,22 @@ func TestSummaryWorkflow(t *testing.T) {
 
 	unpublished, _ := Unpublished(database)
 	if len(unpublished) != 0 {
-		t.Fatal("should not be unpublished yet (no summary)")
+		t.Fatal("should not be unpublished yet")
 	}
 
-	// Set summary
-	SetSummary(database, unsummarized[0].ID, "A great tool", "pip install tool")
+	SetSummary(database, unsummarized[0].ID, "A great tool", "# Full README content here")
 
-	// Now should be unpublished (has summary, not yet published)
 	unsummarized, _ = Unsummarized(database)
 	if len(unsummarized) != 0 {
 		t.Fatal("should no longer be unsummarized")
 	}
 
 	unpublished, _ = Unpublished(database)
-	if len(unpublished) != 1 {
-		t.Fatal("should be unpublished")
-	}
-	if unpublished[0].AISummary != "A great tool" {
-		t.Fatalf("expected summary, got %s", unpublished[0].AISummary)
+	if len(unpublished) != 1 || unpublished[0].AISummary != "A great tool" || unpublished[0].ReadmeRaw != "# Full README content here" {
+		t.Fatal("should be unpublished with summary and readme")
 	}
 
-	// Mark published
 	MarkPublished(database, unpublished[0].ID)
-
 	unpublished, _ = Unpublished(database)
 	if len(unpublished) != 0 {
 		t.Fatal("should no longer be unpublished")

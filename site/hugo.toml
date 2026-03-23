@@ -22,5 +22,8 @@ theme = "hackyfeed-theme"
 [markup.goldmark.renderer]
   unsafe = true
 
+[services.rss]
+  limit = -1
+
 [pagination]
   pagerSize = 25

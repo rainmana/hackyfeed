@@ -8,22 +8,22 @@ import (
 )
 
 type Repo struct {
-	ID                  int64
-	FullName            string
-	Owner               string
-	Name                string
-	Description         string
-	HTMLURL             string
-	Stars               int
-	Language            string
-	Topics              string // comma-separated
-	LastPushed          time.Time
-	FirstSeen           time.Time
-	Source              string // "github-topic" or "awesome-rainmana"
-	AISummary           string
-	InstallInstructions string
-	SummarizedAt        sql.NullTime
-	Published           bool
+	ID           int64
+	FullName     string
+	Owner        string
+	Name         string
+	Description  string
+	HTMLURL      string
+	Stars        int
+	Language     string
+	Topics       string // comma-separated
+	LastPushed   time.Time
+	FirstSeen    time.Time
+	Source       string
+	AISummary    string
+	ReadmeRaw    string
+	SummarizedAt sql.NullTime
+	Published    bool
 }
 
 func Open(path string) (*sql.DB, error) {
@@ -46,14 +46,21 @@ func Open(path string) (*sql.DB, error) {
 		first_seen DATETIME DEFAULT CURRENT_TIMESTAMP,
 		source TEXT DEFAULT 'github-topic',
 		ai_summary TEXT DEFAULT '',
-		install_instructions TEXT DEFAULT '',
+		readme_raw TEXT DEFAULT '',
 		summarized_at DATETIME,
 		published BOOLEAN DEFAULT 0
 	);
 	CREATE INDEX IF NOT EXISTS idx_repos_published ON repos(published);
 	CREATE INDEX IF NOT EXISTS idx_repos_source ON repos(source);
 	`)
-	return db, err
+	if err != nil {
+		return nil, err
+	}
+	// Migrate: add readme_raw column if missing (existing DBs)
+	db.Exec(`ALTER TABLE repos ADD COLUMN readme_raw TEXT DEFAULT ''`)
+	// Migrate: drop install_instructions if present (no longer used)
+	// SQLite doesn't support DROP COLUMN easily, so we just ignore it
+	return db, nil
 }
 
 func UpsertRepo(db *sql.DB, r *Repo) error {
@@ -84,13 +91,13 @@ func Unsummarized(db *sql.DB) ([]Repo, error) {
 	return repos, rows.Err()
 }
 
-func SetSummary(db *sql.DB, id int64, summary, install string) error {
-	_, err := db.Exec(`UPDATE repos SET ai_summary=?, install_instructions=?, summarized_at=CURRENT_TIMESTAMP WHERE id=?`, summary, install, id)
+func SetSummary(db *sql.DB, id int64, summary, readmeRaw string) error {
+	_, err := db.Exec(`UPDATE repos SET ai_summary=?, readme_raw=?, summarized_at=CURRENT_TIMESTAMP WHERE id=?`, summary, readmeRaw, id)
 	return err
 }
 
 func Unpublished(db *sql.DB) ([]Repo, error) {
-	rows, err := db.Query(`SELECT id, full_name, owner, name, description, html_url, stars, language, topics, first_seen, source, ai_summary, install_instructions FROM repos WHERE ai_summary != '' AND published = 0 ORDER BY stars DESC`)
+	rows, err := db.Query(`SELECT id, full_name, owner, name, description, html_url, stars, language, topics, first_seen, source, ai_summary, readme_raw FROM repos WHERE ai_summary != '' AND published = 0 ORDER BY stars DESC`)
 	if err != nil {
 		return nil, err
 	}
@@ -98,7 +105,7 @@ func Unpublished(db *sql.DB) ([]Repo, error) {
 	var repos []Repo
 	for rows.Next() {
 		var r Repo
-		if err := rows.Scan(&r.ID, &r.FullName, &r.Owner, &r.Name, &r.Description, &r.HTMLURL, &r.Stars, &r.Language, &r.Topics, &r.FirstSeen, &r.Source, &r.AISummary, &r.InstallInstructions); err != nil {
+		if err := rows.Scan(&r.ID, &r.FullName, &r.Owner, &r.Name, &r.Description, &r.HTMLURL, &r.Stars, &r.Language, &r.Topics, &r.FirstSeen, &r.Source, &r.AISummary, &r.ReadmeRaw); err != nil {
 			return nil, err
 		}
 		repos = append(repos, r)
@@ -112,7 +119,7 @@ func MarkPublished(db *sql.DB, id int64) error {
 }
 
 func AllPublished(db *sql.DB) ([]Repo, error) {
-	rows, err := db.Query(`SELECT id, full_name, owner, name, description, html_url, stars, language, topics, first_seen, source, ai_summary, install_instructions FROM repos WHERE published = 1 ORDER BY first_seen DESC`)
+	rows, err := db.Query(`SELECT id, full_name, owner, name, description, html_url, stars, language, topics, first_seen, source, ai_summary, readme_raw FROM repos WHERE published = 1 ORDER BY first_seen DESC`)
 	if err != nil {
 		return nil, err
 	}
@@ -120,7 +127,7 @@ func AllPublished(db *sql.DB) ([]Repo, error) {
 	var repos []Repo
 	for rows.Next() {
 		var r Repo
-		if err := rows.Scan(&r.ID, &r.FullName, &r.Owner, &r.Name, &r.Description, &r.HTMLURL, &r.Stars, &r.Language, &r.Topics, &r.FirstSeen, &r.Source, &r.AISummary, &r.InstallInstructions); err != nil {
+		if err := rows.Scan(&r.ID, &r.FullName, &r.Owner, &r.Name, &r.Description, &r.HTMLURL, &r.Stars, &r.Language, &r.Topics, &r.FirstSeen, &r.Source, &r.AISummary, &r.ReadmeRaw); err != nil {
 			return nil, err
 		}
 		repos = append(repos, r)

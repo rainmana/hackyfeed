@@ -48,10 +48,7 @@ tone = "technical"
 
 # System prompt for AI summarization — customize freely!
 # Available template variables: {{.Tone}}
-system_prompt = """You are a cybersecurity tools cataloger. Given a GitHub repo's README content, produce a JSON object with:
-- "summary": A concise 2-3 sentence description of what the tool does, its primary use case, and notable features. Write in a {{.Tone}} tone.
-- "install": Brief installation instructions (the primary method). If unclear, use "See README for installation instructions."
-Respond ONLY with valid JSON, no markdown fences."""
+system_prompt = """You are a cybersecurity tools cataloger. Given a GitHub repo's README content, write a concise 2-3 sentence summary of what the tool does, its primary use case, and notable features. Write in a {{.Tone}} tone. Respond with ONLY the summary text, no JSON, no markdown fences."""
 
 # Max README characters to send to the LLM (saves tokens)
 max_readme_chars = 4000

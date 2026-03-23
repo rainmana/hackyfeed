@@ -87,7 +87,7 @@ func fetchTopic(client *http.Client, database *sql.DB, token, topic string, minS
 		}
 
 		for _, r := range result.Items {
-			if r.Archived {
+			if r.Archived || !IsLikelyEnglish(r.Description) {
 				continue
 			}
 			if err := db.UpsertRepo(database, &db.Repo{
@@ -115,6 +115,20 @@ func fetchTopic(client *http.Client, database *sql.DB, token, topic string, minS
 }
 
 var ReGHLink = regexp.MustCompile(`\[([^\]]+)\]\(https://github\.com/([^/]+/[^/)]+)\)`)
+
+// IsLikelyEnglish returns true if the text is empty or mostly ASCII/Latin characters.
+func IsLikelyEnglish(text string) bool {
+	if text == "" {
+		return true
+	}
+	ascii := 0
+	for _, r := range text {
+		if r < 128 {
+			ascii++
+		}
+	}
+	return float64(ascii)/float64(len([]rune(text))) > 0.7
+}
 
 func ParseAwesomeMarkdown(text string) []db.Repo {
 	var repos []db.Repo
