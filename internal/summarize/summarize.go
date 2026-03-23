@@ -69,8 +69,15 @@ func Run(database *sql.DB, llm LLMConfig, cfg *config.SummarizeConfig) error {
 
 	prompt := ResolvePrompt(cfg.SystemPrompt, cfg.Tone)
 	client := &http.Client{Timeout: 60 * time.Second}
+	consecutiveErrors := 0
 
 	for _, r := range repos {
+		// Circuit breaker: stop if 3+ consecutive LLM errors (likely rate limited or down)
+		if consecutiveErrors >= 3 {
+			log.Printf("[summarize] stopping: %d consecutive LLM errors, likely rate limited", consecutiveErrors)
+			break
+		}
+
 		readme, err := FetchReadme(client, r.FullName)
 		if err != nil {
 			log.Printf("[summarize] skip %s (no readme): %v", r.FullName, err)
@@ -82,18 +89,19 @@ func Run(database *sql.DB, llm LLMConfig, cfg *config.SummarizeConfig) error {
 			continue
 		}
 
-		// Truncate for AI but store full README
 		aiInput := readme
 		if len(aiInput) > cfg.MaxReadmeChars {
 			aiInput = aiInput[:cfg.MaxReadmeChars]
 		}
 
-		summary, err := CallLLM(client, llm, prompt, r.FullName, aiInput)
+		summary, err := CallLLMWithRetry(client, llm, prompt, r.FullName, aiInput)
 		if err != nil {
-			log.Printf("[summarize] LLM error %s: %v, using description", r.FullName, err)
-			summary = r.Description
+			log.Printf("[summarize] LLM error %s: %v, skipping (will retry next run)", r.FullName, err)
+			consecutiveErrors++
+			continue // don't save fallback — leave unsummarized so it retries next run
 		}
 
+		consecutiveErrors = 0
 		if err := db.SetSummary(database, r.ID, summary, readme); err != nil {
 			log.Printf("[summarize] db error %s: %v", r.FullName, err)
 		}
@@ -122,7 +130,27 @@ func FetchReadme(client *http.Client, fullName string) (string, error) {
 	return "", fmt.Errorf("no readme found")
 }
 
-func CallLLM(client *http.Client, llm LLMConfig, systemPrompt, repoName, readme string) (string, error) {
+func CallLLMWithRetry(client *http.Client, llm LLMConfig, systemPrompt, repoName, readme string) (string, error) {
+	var lastErr error
+	for attempt := 0; attempt < 3; attempt++ {
+		if attempt > 0 {
+			wait := time.Duration(attempt*attempt) * 5 * time.Second // 5s, 20s
+			log.Printf("[summarize] retry %d for %s, waiting %v", attempt, repoName, wait)
+			time.Sleep(wait)
+		}
+		summary, retryable, err := callLLMOnce(client, llm, systemPrompt, repoName, readme)
+		if err == nil {
+			return summary, nil
+		}
+		lastErr = err
+		if !retryable {
+			return "", err
+		}
+	}
+	return "", fmt.Errorf("after 3 attempts: %w", lastErr)
+}
+
+func callLLMOnce(client *http.Client, llm LLMConfig, systemPrompt, repoName, readme string) (summary string, retryable bool, err error) {
 	body, _ := json.Marshal(chatReq{
 		Model: llm.Model,
 		Messages: []msg{
@@ -139,24 +167,31 @@ func CallLLM(client *http.Client, llm LLMConfig, systemPrompt, repoName, readme 
 
 	resp, err := client.Do(req)
 	if err != nil {
-		return "", err
+		return "", true, err // network error, retryable
 	}
 	defer resp.Body.Close()
 
 	respBody, _ := io.ReadAll(resp.Body)
-	if resp.StatusCode != 200 {
-		return "", fmt.Errorf("LLM API %d: %s", resp.StatusCode, string(respBody))
+
+	switch {
+	case resp.StatusCode == 429:
+		return "", true, fmt.Errorf("rate limited (429)")
+	case resp.StatusCode == 500 || resp.StatusCode == 502 || resp.StatusCode == 503:
+		return "", true, fmt.Errorf("server error (%d)", resp.StatusCode)
+	case resp.StatusCode != 200:
+		return "", false, fmt.Errorf("LLM API %d: %s", resp.StatusCode, string(respBody))
 	}
 
 	var cr chatResp
 	if err := json.Unmarshal(respBody, &cr); err != nil {
-		return "", err
+		return "", false, err
 	}
 	if len(cr.Choices) == 0 {
-		return "", fmt.Errorf("no choices returned")
+		return "", false, fmt.Errorf("no choices returned")
 	}
 
-	return ParseLLMResponse(cr.Choices[0].Message.Content)
+	s, parseErr := ParseLLMResponse(cr.Choices[0].Message.Content)
+	return s, false, parseErr
 }
 
 func ParseLLMResponse(content string) (string, error) {
