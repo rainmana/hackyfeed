@@ -6,11 +6,20 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strings"
 
 	"github.com/rainmana/hackyfeed/internal/config"
 	"github.com/rainmana/hackyfeed/internal/db"
 )
+
+// secretPatterns lists regexes for tokens that GitHub push protection will reject.
+// READMEs frequently include these as integration examples; we redact them before
+// committing the generated content to the repo.
+var secretPatterns = []*regexp.Regexp{
+	regexp.MustCompile(`https://hooks\.slack\.com/services/[A-Za-z0-9/_-]+`),
+	regexp.MustCompile(`https://hooks\.slack\.com/workflows/[A-Za-z0-9/_-]+`),
+}
 
 func Run(database *sql.DB, siteDir string, cfg *config.CategoriesConfig) error {
 	repos, err := db.Unpublished(database)
@@ -78,7 +87,7 @@ func RenderToolMarkdown(r db.Repo, cfg *config.CategoriesConfig) string {
 	}
 	if r.ReadmeRaw != "" {
 		body.WriteString("---\n\n## README\n\n")
-		body.WriteString(safeForHugo(r.ReadmeRaw))
+		body.WriteString(safeForHugo(redactSecrets(r.ReadmeRaw)))
 	} else {
 		body.WriteString(r.Description)
 	}
@@ -107,6 +116,15 @@ source: "%s"
 func safeForHugo(s string) string {
 	s = strings.ReplaceAll(s, "{{<", "{ {<")
 	s = strings.ReplaceAll(s, "{{%", "{ {%")
+	return s
+}
+
+// redactSecrets replaces tokens that would trigger GitHub push protection with
+// a placeholder. READMEs often include webhook URLs etc. as integration examples.
+func redactSecrets(s string) string {
+	for _, re := range secretPatterns {
+		s = re.ReplaceAllString(s, "[redacted-webhook-url]")
+	}
 	return s
 }
 
