@@ -1,20 +1,35 @@
 {{ define "main" }}
-<h1 class="cursor" style="color:var(--accent);margin-bottom:0.3rem;">~/hackyfeed $</h1>
-<p style="color:var(--text-muted);margin-bottom:2rem;">{{ .Site.Params.description }}</p>
+<div class="feed-header">
+  <h1 class="cursor" style="color:var(--accent);margin-bottom:0.3rem;">~/hackyfeed $</h1>
+  <p style="color:var(--text-muted);margin-bottom:1.5rem;">{{ .Site.Params.description }}</p>
 
-<div class="tool-list">
+  <div class="sort-bar">
+    <span class="sort-label">sort:</span>
+    <button class="sort-btn active" id="sort-date" onclick="sortTools('date', this)">newest</button>
+    <button class="sort-btn" id="sort-stars" onclick="sortTools('stars', this)">most stars</button>
+    <button class="sort-btn" id="sort-name" onclick="sortTools('name', this)">a–z</button>
+    <span class="sort-scope">( this page )</span>
+  </div>
+</div>
+
+<div class="tool-list" id="tool-list">
   {{ range .Paginator.Pages }}
-  <article class="tool-card">
-    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-    <div class="tool-meta">
-      <span>{{ .Date.Format "2006-01-02" }}</span>
-      {{ with .Params.language }}<span>{{ . }}</span>{{ end }}
-      {{ with .Params.stars }}<span>★ {{ . }}</span>{{ end }}
-      {{ with .Params.github_url }}<span><a href="{{ . }}">github</a></span>{{ end }}
+  <article class="tool-card"
+    data-date="{{ .Date.Format "2006-01-02" }}"
+    data-stars="{{ .Params.stars | default 0 }}"
+    data-name="{{ .Title | lower }}">
+    <div class="post-meta-row">
+      <span class="discover-date">{{ .Date.Format "02 Jan 2006" }}</span>
+      {{ with .Params.language }}<span class="meta-lang">{{ . }}</span>{{ end }}
+      {{ with .Params.stars }}<span class="meta-stars">★ {{ . }}</span>{{ end }}
     </div>
+    <h2 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
     <div class="tool-summary">{{ .Summary }}</div>
-    <div class="tool-tags">
-      {{ range .Params.categories }}<span class="tag">{{ . }}</span>{{ end }}
+    <div class="post-footer">
+      <div class="tool-tags">
+        {{ range .Params.categories }}<span class="tag">{{ . }}</span>{{ end }}
+      </div>
+      {{ with .Params.github_url }}<a class="gh-link" href="{{ . }}" target="_blank" rel="noopener">github →</a>{{ end }}
     </div>
   </article>
   {{ end }}

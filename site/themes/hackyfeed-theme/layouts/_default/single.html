@@ -1,10 +1,11 @@
 {{ define "main" }}
 <article class="tool-single">
+  <div class="single-discover">discovered {{ .Date.Format "02 Jan 2006" }}</div>
   <h1>{{ .Title }}</h1>
   <div class="tool-meta">
-    <span>{{ .Date.Format "2006-01-02" }}</span>
     {{ with .Params.language }}<span>{{ . }}</span>{{ end }}
     {{ with .Params.stars }}<span>★ {{ . }}</span>{{ end }}
+    {{ with .Params.source }}<span>via {{ . }}</span>{{ end }}
   </div>
 
   {{ with .Params.github_url }}<a class="github-link" href="{{ . }}" target="_blank" rel="noopener">→ View on GitHub</a>{{ end }}

@@ -74,10 +74,11 @@ func RenderToolMarkdown(r db.Repo, cfg *config.CategoriesConfig) string {
 	if r.AISummary != "" {
 		body.WriteString("> **AI Summary:** ")
 		body.WriteString(r.AISummary)
-		body.WriteString("\n\n---\n\n")
+		body.WriteString("\n\n")
 	}
 	if r.ReadmeRaw != "" {
-		body.WriteString(r.ReadmeRaw)
+		body.WriteString("---\n\n## README\n\n")
+		body.WriteString(safeForHugo(r.ReadmeRaw))
 	} else {
 		body.WriteString(r.Description)
 	}
@@ -99,6 +100,14 @@ source: "%s"
 		catYAML, tagYAML,
 		r.HTMLURL, r.Stars, r.Language, r.Source,
 		body.String())
+}
+
+// safeForHugo escapes Hugo shortcode delimiters so they don't get processed as
+// template actions when the README is embedded directly in Hugo content files.
+func safeForHugo(s string) string {
+	s = strings.ReplaceAll(s, "{{<", "{ {<")
+	s = strings.ReplaceAll(s, "{{%", "{ {%")
+	return s
 }
 
 func escapeYAML(s string) string {
