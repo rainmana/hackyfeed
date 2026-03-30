@@ -6,7 +6,7 @@ on:
   workflow_dispatch:       # manual trigger
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -55,15 +55,6 @@ jobs:
 
       - name: Generate Hugo content
         run: ./hackyfeed generate
-
-      - name: Commit content updates
-        run: |
-          git config user.name "hackyfeed-bot"
-          git config user.email "bot@hackyfeed"
-          git add site/content/
-          git diff --staged --quiet || git commit -m "chore: daily update $(date -u +%Y-%m-%d)"
-          git pull --rebase origin main
-          git push
 
       - uses: peaceiris/actions-hugo@v3
         with:
