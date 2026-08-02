@@ -5,7 +5,7 @@ on:
     branches: [main]
   schedule:
     # Changing this schedule also re-enables it after GitHub inactivity pauses.
-    - cron: "7 14 * * *"
+    - cron: "17 14 * * *"
   workflow_dispatch:
 
 permissions:
