@@ -128,7 +128,7 @@ The repaired workflow distinguishes publication from catalog enrichment:
 - reusable Actions are pinned to full commit SHAs;
 - CI performs a real seed import, full generation, and production Hugo build.
 
-The schedule cron was deliberately changed so a future commit can reactivate GitHub's inactivity-paused schedule. No remote workflow has been re-enabled yet because nothing has been pushed.
+The schedule cron was deliberately changed during publication. GitHub marked the original workflow active again but did not create runs for two subsequent authenticated `main` pushes. Renaming the repaired workflow from `daily-update.yml` to `pages.yml` gave it a fresh workflow identity; the very next push started the deployment normally. The active repository workflows are now `CI` and `Update & Deploy`, and the stale inactivity-disabled identity is gone.
 
 ## Implementation map
 
@@ -155,6 +155,32 @@ The final verification pass should record all of the following before a commit i
 - [x] all 74 live-only routes remain present in the clean build.
 - [x] a post-fix Joern 4.0.594 CPG confirms page generation no longer depends on stored README bodies.
 - [x] `actionlint` accepts both workflows; the final diff contains no generated pages, databases, secrets, or changes under the unrelated `.serena` directory.
+
+## Publication record — 2026-08-02
+
+The recovery was published through [pull request #2](https://github.com/rainmana/hackyfeed/pull/2). Its production-shaped CI run passed before the PR was squash-merged into `main` as commit `8cd1f7a6ef69f7ec11103312cef0f0792c995708`.
+
+GitHub's inactivity state produced one final operational surprise: the repaired historical workflow appeared as `active` through the Actions API but ignored both the merge and a later authenticated `main` push. An explicit cron edit also failed to create a run. Replacing the stale workflow path with `.github/workflows/pages.yml` created a new workflow identity, and commit `5c6bf4f4974968de5a91c22be69d6c5b8b42801b` immediately started [deployment run #30772049802](https://github.com/rainmana/hackyfeed/actions/runs/30772049802).
+
+That run completed successfully through every important stage:
+
+- Go build and the complete test suite;
+- durable catalog restoration, legacy README purge, and database integrity check;
+- generation of the public catalog and tool pages;
+- Hugo Extended 0.164.0 production minification;
+- RSS and manifest artifact checks;
+- Pages configuration, artifact upload, deployment, and cache save.
+
+Post-deployment checks against the actual GitHub Pages CDN confirmed:
+
+- the home page, feed, manifest, sitemap, and sampled tool pages all returned HTTP 200;
+- the public manifest contained 1,070 records and SHA-256 `e47b4fed919a0031ff4ed57a9710d9db0dce1f5a1bff6a8a14324b7965557287`;
+- the sitemap contained exactly 1,070 tool URLs;
+- the live feed was 43,700 bytes with exactly 50 unique absolute GUIDs and links in descending timestamp order;
+- the live feed contained no script elements and was advertised in the home page `<head>`;
+- the W3C Feed Validation Service reported: **This is a valid RSS feed**.
+
+The workflow-identity behavior is worth preserving for the article: changing correct YAML is not always enough when GitHub retains historical disabled state. A fresh workflow path can be the cleanest way to separate a repaired automation pipeline from its stale control-plane identity.
 
 ## Article material
 
@@ -183,9 +209,9 @@ The final verification pass should record all of the following before a commit i
 - the Joern trust-flow query result;
 - before/after workflow state diagrams;
 - before/after feed size, item count, and validation results;
-- the first successful post-repair Pages run, once explicitly authorized and deployed.
+- the first successful post-repair Pages run: [#30772049802](https://github.com/rainmana/hackyfeed/actions/runs/30772049802).
 
-## Remaining decisions after local repair
+## Remaining decisions after the recovery release
 
 - Whether the future LLM tooling feed should share this theme or use a distinct visual identity.
 - Whether to turn this repository into a GitHub template repository after the repaired deployment is proven live.
