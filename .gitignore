@@ -6,6 +6,7 @@
 site/public/
 site/resources/
 site/.hugo_build.lock
+site/hackyfeed.generated.toml
 
 # Go binary
 /hackyfeed
@@ -19,3 +20,5 @@ Thumbs.db
 .vscode/
 *.swp
 site/content/tools/
+site/static/catalog.jsonl
+site/static/catalog.manifest.json

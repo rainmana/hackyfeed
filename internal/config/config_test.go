@@ -2,15 +2,12 @@ package config
 
 import (
 	"os"
+	"path/filepath"
 	"testing"
 )
 
-func TestLoadDefault(t *testing.T) {
-	// Loading a nonexistent file should return defaults
-	cfg, err := Load("/nonexistent/hackyfeed.toml")
-	if err != nil {
-		t.Fatal(err)
-	}
+func TestDefault(t *testing.T) {
+	cfg := Default()
 	if cfg.Site.Title != "HackyFeed" {
 		t.Errorf("expected default title, got %q", cfg.Site.Title)
 	}
@@ -63,5 +60,48 @@ ai = ["artificial-intelligence", "machine-learning"]
 	}
 	if _, ok := cfg.Categories.Rules["ai"]; !ok {
 		t.Error("expected ai category rule")
+	}
+	if len(cfg.Categories.Rules) != 1 {
+		t.Fatalf("explicit category rules should replace domain defaults, got %d rules", len(cfg.Categories.Rules))
+	}
+}
+
+func TestLoadReturnsNonMissingReadErrors(t *testing.T) {
+	if _, err := Load(t.TempDir()); err == nil {
+		t.Fatal("expected reading a directory as config to fail")
+	}
+}
+
+func TestLoadRejectsMissingPath(t *testing.T) {
+	if _, err := Load(filepath.Join(t.TempDir(), "typo.toml")); err == nil {
+		t.Fatal("expected a missing configuration path to fail")
+	}
+}
+
+func TestLoadRejectsUnknownKeys(t *testing.T) {
+	path := filepath.Join(t.TempDir(), "unknown.toml")
+	if err := os.WriteFile(path, []byte("[site]\nbaseurl = 'https://wrong.example/'\n"), 0644); err != nil {
+		t.Fatal(err)
+	}
+	if _, err := Load(path); err == nil {
+		t.Fatal("expected misspelled key to fail")
+	}
+}
+
+func TestLoadRejectsInvalidSemanticValues(t *testing.T) {
+	for name, contents := range map[string]string{
+		"base URL":     "[site]\nbase_url = 'javascript:alert(1)'\n",
+		"README limit": "[summarize]\nmax_readme_chars = -1\n",
+		"batch limit":  "[summarize]\nbatch_limit = -1\n",
+	} {
+		t.Run(name, func(t *testing.T) {
+			path := filepath.Join(t.TempDir(), "invalid.toml")
+			if err := os.WriteFile(path, []byte(contents), 0644); err != nil {
+				t.Fatal(err)
+			}
+			if _, err := Load(path); err == nil {
+				t.Fatal("expected invalid configuration to fail")
+			}
+		})
 	}
 }

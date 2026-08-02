@@ -1,12 +1,14 @@
-baseURL = "https://rainmana.github.io/hackyfeed/"
-languageCode = "en-us"
-title = "HackyFeed"
+baseURL = "https://example.invalid/"
+locale = "en-US"
+title = "Catalog"
 theme = "hackyfeed-theme"
+timeZone = "UTC"
 
 [params]
-  description = "A cybersecurity tools aggregator — discover the latest pentesting, red team, and offensive security tools from GitHub."
-  author = "rainmana"
-  tagline = "> cat /dev/github | grep security-tools"
+  description = "A generated GitHub tools catalog. Run hackyfeed generate to apply project branding."
+  author = ""
+  tagline = "> catalog"
+  rssLimit = 50
 
 [taxonomies]
   category = "categories"
@@ -20,10 +22,10 @@ theme = "hackyfeed-theme"
   baseName = "feed"
 
 [markup.goldmark.renderer]
-  unsafe = true
+  unsafe = false
 
 [services.rss]
-  limit = -1
+  limit = 50
 
 [pagination]
   pagerSize = 25

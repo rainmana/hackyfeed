@@ -1,9 +1,12 @@
-name: Daily Update & Deploy
+name: Update & Deploy
 
 on:
+  push:
+    branches: [main]
   schedule:
-    - cron: '0 14 * * *'  # 8am MT / 2pm UTC daily
-  workflow_dispatch:       # manual trigger
+    # Changing this schedule also re-enables it after GitHub inactivity pauses.
+    - cron: "7 14 * * *"
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -17,59 +20,95 @@ concurrency:
 jobs:
   update-and-deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 120
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - uses: actions/checkout@v4
 
-      - name: Restore DB cache
-        uses: actions/cache@v4
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6
+        with:
+          go-version-file: go.mod
+          cache: true
+          cache-dependency-path: go.sum
+
+      - name: Install Hugo
+        uses: peaceiris/actions-hugo@2752ce1d29631191ea3f27c23495fa06139a5b78 # v3
+        with:
+          hugo-version: "0.164.0"
+          extended: true
+
+      - name: Restore working database cache
+        id: database-cache
+        uses: actions/cache/restore@caa296126883cff596d87d8935842f9db880ef25 # v5
         with:
           path: hackyfeed.db
-          key: hackyfeed-db-${{ github.run_id }}
+          key: hackyfeed-db-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
-            hackyfeed-db-
-
-      - uses: actions/setup-go@v5
-        with:
-          go-version: '1.22'
+            hackyfeed-db-${{ runner.os }}-
 
       - name: Build CLI
         run: go build -o hackyfeed ./cmd/hackyfeed/
 
-      - name: Clean stale content
-        run: rm -f site/content/tools/*.md
-
-      - name: Fetch repos
+      - name: Run tests
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAT }}
+          HUGO_BIN: hugo
+        run: go test ./...
+
+      - name: Restore durable catalog state
+        run: ./hackyfeed restore --allow-empty
+
+      - name: Remove legacy cached README bodies
+        run: ./hackyfeed purge-readmes
+
+      - name: Check database
+        run: ./hackyfeed doctor
+
+      # A push safely republishes known state. Scheduled and manual runs also
+      # perform the potentially expensive discovery and summarization update.
+      - name: Fetch repositories
+        if: github.event_name != 'push'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT || github.token }}
         run: ./hackyfeed fetch
 
-      - name: Summarize new repos
+      - name: Summarize new repositories
+        if: github.event_name != 'push'
         env:
           LLM_API_BASE: ${{ secrets.LLM_API_BASE }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
-          LLM_MODEL: gpt-4o-mini
+          LLM_MODEL: ${{ vars.LLM_MODEL || 'gpt-4o-mini' }}
         run: ./hackyfeed summarize
 
-      - name: Generate Hugo content
+      - name: Generate site and public catalog
         run: ./hackyfeed generate
 
-      - uses: peaceiris/actions-hugo@v3
-        with:
-          hugo-version: 'latest'
-
       - name: Build Hugo site
-        run: hugo --minify
+        run: hugo --config hugo.toml,hackyfeed.generated.toml --minify
         working-directory: site
 
-      - uses: actions/configure-pages@v5
+      - name: Verify RSS artifact
+        run: |
+          test -s site/public/feed.xml
+          test -s site/public/catalog.manifest.json
 
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6
+
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5
         with:
           path: site/public
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5
+
+      # Cache is only a resumable work area. The published catalog and checked-in
+      # seed are the durable sources of truth. Save even when a later step fails.
+      - name: Save working database cache
+        if: always()
+        uses: actions/cache/save@caa296126883cff596d87d8935842f9db880ef25 # v5
+        with:
+          path: hackyfeed.db
+          key: hackyfeed-db-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}

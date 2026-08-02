@@ -1,9 +1,9 @@
 package fetch
 
 import (
-	"bufio"
 	"database/sql"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"log"
@@ -40,30 +40,52 @@ type ghOwner struct {
 
 func Run(database *sql.DB, token string, cfg *config.FetchConfig) error {
 	client := &http.Client{Timeout: 30 * time.Second}
+	attempted := 0
+	succeeded := 0
+	var discoveryErrors []error
 
 	for _, topic := range cfg.Topics {
+		attempted++
 		log.Printf("[fetch] topic: %s", topic)
 		if err := fetchTopic(client, database, token, topic, cfg.MinStars); err != nil {
 			log.Printf("[fetch] error on topic %s: %v", topic, err)
+			discoveryErrors = append(discoveryErrors, fmt.Errorf("topic %s: %w", topic, err))
+		} else {
+			succeeded++
 		}
 		time.Sleep(2 * time.Second)
 	}
 
 	for _, awesomeURL := range cfg.AwesomeLists {
+		attempted++
 		log.Printf("[fetch] awesome list: %s", awesomeURL)
 		if err := fetchAwesome(client, database, awesomeURL); err != nil {
 			log.Printf("[fetch] error on awesome list: %v", err)
+			discoveryErrors = append(discoveryErrors, fmt.Errorf("awesome list %s: %w", awesomeURL, err))
+		} else {
+			succeeded++
 		}
+	}
+	if attempted == 0 {
+		return fmt.Errorf("no discovery sources configured")
+	}
+	if succeeded == 0 {
+		return fmt.Errorf("all %d discovery sources failed: %w", attempted, errors.Join(discoveryErrors...))
+	}
+	if len(discoveryErrors) > 0 {
+		log.Printf("[fetch] completed with %d of %d sources successful", succeeded, attempted)
 	}
 	return nil
 }
 
 func fetchTopic(client *http.Client, database *sql.DB, token, topic string, minStars int) error {
 	for page := 1; page <= 3; page++ {
-		q := fmt.Sprintf("topic:%s stars:>=%d archived:false", topic, minStars)
-		u := fmt.Sprintf("https://api.github.com/search/repositories?q=%s&sort=stars&order=desc&per_page=100&page=%d", url.QueryEscape(q), page)
+		u := githubSearchURL(topic, minStars, page)
 
-		req, _ := http.NewRequest("GET", u, nil)
+		req, err := http.NewRequest("GET", u, nil)
+		if err != nil {
+			return err
+		}
 		req.Header.Set("Accept", "application/vnd.github+json")
 		if token != "" {
 			req.Header.Set("Authorization", "Bearer "+token)
@@ -73,12 +95,18 @@ func fetchTopic(client *http.Client, database *sql.DB, token, topic string, minS
 		if err != nil {
 			return err
 		}
-		body, _ := io.ReadAll(resp.Body)
+		body, readErr := io.ReadAll(resp.Body)
 		resp.Body.Close()
+		if readErr != nil {
+			return readErr
+		}
 
 		if resp.StatusCode != 200 {
-			log.Printf("[fetch] GitHub API %d for topic %s page %d", resp.StatusCode, topic, page)
-			break
+			detail := strings.TrimSpace(string(body))
+			if len(detail) > 500 {
+				detail = detail[:500]
+			}
+			return fmt.Errorf("GitHub API %d for page %d: %s", resp.StatusCode, page, detail)
 		}
 
 		var result ghSearchResult
@@ -102,7 +130,7 @@ func fetchTopic(client *http.Client, database *sql.DB, token, topic string, minS
 				LastPushed:  r.PushedAt,
 				Source:      "github-topic",
 			}); err != nil {
-				log.Printf("[fetch] upsert error %s: %v", r.FullName, err)
+				return fmt.Errorf("upsert %s: %w", r.FullName, err)
 			}
 		}
 
@@ -114,7 +142,14 @@ func fetchTopic(client *http.Client, database *sql.DB, token, topic string, minS
 	return nil
 }
 
-var ReGHLink = regexp.MustCompile(`\[([^\]]+)\]\(https://github\.com/([^/]+/[^/)]+)\)`)
+func githubSearchURL(topic string, minStars, page int) string {
+	q := fmt.Sprintf("topic:%s stars:>=%d archived:false", topic, minStars)
+	// Recent activity is the discovery signal. Sorting by stars permanently hid
+	// new qualifying projects below the historical top 300 for busy topics.
+	return fmt.Sprintf("https://api.github.com/search/repositories?q=%s&sort=updated&order=desc&per_page=100&page=%d", url.QueryEscape(q), page)
+}
+
+var ReGHLink = regexp.MustCompile(`(?i)\[[^\]]+\]\((https://github\.com/[^\s)]+)(?:\s+(?:"[^"]*"|'[^']*'))?\)`)
 
 // IsLikelyEnglish returns true if the text is empty or mostly ASCII/Latin characters.
 func IsLikelyEnglish(text string) bool {
@@ -132,13 +167,19 @@ func IsLikelyEnglish(text string) bool {
 
 func ParseAwesomeMarkdown(text string) []db.Repo {
 	var repos []db.Repo
-	scanner := bufio.NewScanner(strings.NewReader(text))
-	for scanner.Scan() {
-		line := scanner.Text()
+	for _, line := range strings.Split(text, "\n") {
 		for _, m := range ReGHLink.FindAllStringSubmatch(line, -1) {
-			fullName := m[2]
-			parts := strings.SplitN(fullName, "/", 2)
+			parsed, err := url.Parse(m[1])
+			if err != nil || parsed.User != nil || parsed.Port() != "" || parsed.Scheme != "https" || !strings.EqualFold(parsed.Hostname(), "github.com") {
+				continue
+			}
+			parts := strings.Split(strings.Trim(parsed.Path, "/"), "/")
 			if len(parts) != 2 {
+				continue
+			}
+			fullName := parts[0] + "/" + parts[1]
+			owner, name, htmlURL, err := db.CanonicalGitHubIdentity(fullName)
+			if err != nil {
 				continue
 			}
 			desc := ""
@@ -147,10 +188,10 @@ func ParseAwesomeMarkdown(text string) []db.Repo {
 			}
 			repos = append(repos, db.Repo{
 				FullName:    fullName,
-				Owner:       parts[0],
-				Name:        parts[1],
+				Owner:       owner,
+				Name:        name,
 				Description: desc,
-				HTMLURL:     "https://github.com/" + fullName,
+				HTMLURL:     htmlURL,
 				Source:      "awesome-list",
 			})
 		}
@@ -159,20 +200,30 @@ func ParseAwesomeMarkdown(text string) []db.Repo {
 }
 
 func fetchAwesome(client *http.Client, database *sql.DB, rawURL string) error {
+	const maxAwesomeBytes = 10 * 1024 * 1024
 	resp, err := client.Get(rawURL)
 	if err != nil {
 		return err
 	}
 	defer resp.Body.Close()
-	body, err := io.ReadAll(resp.Body)
+	if resp.StatusCode != http.StatusOK {
+		return fmt.Errorf("HTTP %d", resp.StatusCode)
+	}
+	body, err := io.ReadAll(io.LimitReader(resp.Body, maxAwesomeBytes+1))
 	if err != nil {
 		return err
 	}
+	if len(body) > maxAwesomeBytes {
+		return fmt.Errorf("awesome list exceeds %d bytes", maxAwesomeBytes)
+	}
 
 	repos := ParseAwesomeMarkdown(string(body))
+	if len(repos) == 0 {
+		return fmt.Errorf("awesome list contained no valid GitHub repository links")
+	}
 	for _, r := range repos {
 		if err := db.UpsertRepo(database, &r); err != nil {
-			log.Printf("[fetch] awesome upsert error %s: %v", r.FullName, err)
+			return fmt.Errorf("upsert %s: %w", r.FullName, err)
 		}
 	}
 	log.Printf("[fetch] parsed %d repos from awesome list", len(repos))

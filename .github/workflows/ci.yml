@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches-ignore: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      HUGO_BIN: hugo
+
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+
+      - uses: actions/setup-go@924ae3a1cded613372ab5595356fb5720e22ba16 # v6
+        with:
+          go-version-file: go.mod
+          cache: true
+          cache-dependency-path: go.sum
+
+      - name: Install Hugo
+        uses: peaceiris/actions-hugo@2752ce1d29631191ea3f27c23495fa06139a5b78 # v3
+        with:
+          hugo-version: "0.164.0"
+          extended: true
+
+      - name: Test
+        run: go test ./...
+
+      - name: Vet
+        run: go vet ./...
+
+      - name: Build CLI
+        run: go build -o hackyfeed ./cmd/hackyfeed/
+
+      - name: Restore checked-in seed
+        env:
+          HACKYFEED_DB: ${{ runner.temp }}/hackyfeed-ci.db
+        run: ./hackyfeed catalog-import data/catalog.jsonl
+
+      - name: Generate site and public catalog
+        env:
+          HACKYFEED_DB: ${{ runner.temp }}/hackyfeed-ci.db
+        run: ./hackyfeed generate
+
+      - name: Production Hugo build
+        run: hugo --config hugo.toml,hackyfeed.generated.toml --minify
+        working-directory: site
+
+      - name: Verify RSS artifact
+        run: |
+          test -s site/public/feed.xml
+          test -s site/public/catalog.manifest.json
