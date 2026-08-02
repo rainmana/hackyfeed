@@ -1,4 +1,5 @@
 {{ define "main" }}
+{{ if eq .Section "tools" }}
 <article class="tool-single">
   <div class="single-discover">discovered {{ .Date.Format "02 Jan 2006" }}</div>
   <h1>{{ .Title }}</h1>
@@ -10,11 +11,17 @@
 
   {{ with .Params.github_url }}<a class="github-link" href="{{ . }}" target="_blank" rel="noopener">→ View on GitHub</a>{{ end }}
 
-  <div class="content">{{ .Content }}</div>
+  <div class="tool-summary">{{ .Params.summary | default .Description }}</div>
 
   <div class="tool-tags" style="margin-top:1.5rem;">
     {{ range .Params.categories }}<a class="tag" href="{{ "categories/" | relURL }}{{ . | urlize }}/">{{ . }}</a> {{ end }}
     {{ range .Params.tags }}<a class="tag" href="{{ "tags/" | relURL }}{{ . | urlize }}/">{{ . }}</a> {{ end }}
   </div>
 </article>
+{{ else }}
+<article class="page-content">
+  <h1>{{ .Title }}</h1>
+  <div class="content">{{ .Content }}</div>
+</article>
+{{ end }}
 {{ end }}

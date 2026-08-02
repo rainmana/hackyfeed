@@ -8,7 +8,7 @@
     {{ with .Params.language }}<span>{{ . }}</span>{{ end }}
     {{ with .Params.stars }}<span>★ {{ . }}</span>{{ end }}
   </div>
-  <div class="tool-summary">{{ .Summary }}</div>
+  <div class="tool-summary">{{ .Params.summary | default .Description }}</div>
 </article>
 {{ end }}
 {{ end }}

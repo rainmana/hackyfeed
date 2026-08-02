@@ -1,6 +1,6 @@
 {{ define "main" }}
 <div class="feed-header">
-  <h1 class="cursor" style="color:var(--accent);margin-bottom:0.3rem;">~/hackyfeed $</h1>
+  <h1 class="cursor" style="color:var(--accent);margin-bottom:0.3rem;">~/{{ .Site.Title | urlize }} $</h1>
   <p style="color:var(--text-muted);margin-bottom:1.5rem;">{{ .Site.Params.description }}</p>
 
   <div class="sort-bar">
@@ -13,9 +13,11 @@
 </div>
 
 <div class="tool-list" id="tool-list">
-  {{ range .Paginator.Pages }}
+  {{ $tools := where .Site.RegularPages "Section" "tools" }}
+  {{ $paginator := .Paginate $tools.ByDate.Reverse }}
+  {{ range $paginator.Pages }}
   <article class="tool-card"
-    data-date="{{ .Date.Format "2006-01-02" }}"
+    data-date="{{ .Date.UTC.Format "2006-01-02T15:04:05Z07:00" }}"
     data-stars="{{ .Params.stars | default 0 }}"
     data-name="{{ .Title | lower }}">
     <div class="post-meta-row">
@@ -24,7 +26,7 @@
       {{ with .Params.stars }}<span class="meta-stars">★ {{ . }}</span>{{ end }}
     </div>
     <h2 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-    <div class="tool-summary">{{ .Summary }}</div>
+    <div class="tool-summary">{{ .Params.summary | default .Description }}</div>
     <div class="post-footer">
       <div class="tool-tags">
         {{ range .Params.categories }}<span class="tag">{{ . }}</span>{{ end }}

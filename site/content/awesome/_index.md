@@ -1,10 +1,10 @@
 ---
-title: "Awesome List"
+title: "Curated Sources"
 layout: "single"
 ---
 
-## awesome-rainmana
+## Curated repository lists
 
-Tools sourced from [rainmana's awesome list](https://github.com/rainmana/awesome-rainmana) — a curated collection of starred GitHub repositories covering cybersecurity, reverse engineering, development tools, and more.
+In addition to GitHub topic searches, this catalog can discover repositories from the curated Markdown lists configured by the site maintainer.
 
-Browse tools from this source by visiting the [awesome-list category](/hackyfeed/categories/awesome-list/).
+When curated lists are enabled, browse their entries in the [awesome-list category](../categories/awesome-list/). The upstream repository link on every tool page remains the authoritative source.

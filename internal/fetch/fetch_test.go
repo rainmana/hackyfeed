@@ -1,7 +1,14 @@
 package fetch
 
 import (
+	"net/http"
+	"net/http/httptest"
+	"path/filepath"
+	"strings"
 	"testing"
+
+	"github.com/rainmana/hackyfeed/internal/config"
+	"github.com/rainmana/hackyfeed/internal/db"
 )
 
 func TestParseAwesomeMarkdown(t *testing.T) {
@@ -39,6 +46,66 @@ func TestParseAwesomeMarkdown(t *testing.T) {
 	}
 }
 
+func TestRunFailsWhenAllDiscoverySourcesFail(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(response http.ResponseWriter, request *http.Request) {
+		http.Error(response, "upstream failed", http.StatusBadGateway)
+	}))
+	defer server.Close()
+	database, err := db.Open(filepath.Join(t.TempDir(), "fetch.db"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer database.Close()
+
+	err = Run(database, "", &config.FetchConfig{AwesomeLists: []string{server.URL}})
+	if err == nil {
+		t.Fatal("expected complete discovery failure to be returned")
+	}
+}
+
+func TestRunAllowsPartialDiscoverySuccess(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(response http.ResponseWriter, request *http.Request) {
+		if request.URL.Path == "/failed" {
+			http.Error(response, "upstream failed", http.StatusBadGateway)
+			return
+		}
+		response.Write([]byte("- [tool](https://github.com/owner/tool) - useful tool\n"))
+	}))
+	defer server.Close()
+	database, err := db.Open(filepath.Join(t.TempDir(), "fetch.db"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer database.Close()
+
+	err = Run(database, "", &config.FetchConfig{AwesomeLists: []string{server.URL + "/failed", server.URL + "/ok"}})
+	if err != nil {
+		t.Fatal(err)
+	}
+	count, err := db.Count(database)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if count != 1 {
+		t.Fatalf("expected successful source to be retained, got %d records", count)
+	}
+}
+
+func TestRunRejectsEmptyAwesomeListAsFailedDiscovery(t *testing.T) {
+	server := httptest.NewServer(http.HandlerFunc(func(response http.ResponseWriter, request *http.Request) {
+		response.Write([]byte("<html>not the configured Markdown list</html>"))
+	}))
+	defer server.Close()
+	database, err := db.Open(filepath.Join(t.TempDir(), "fetch.db"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	defer database.Close()
+	if err := Run(database, "", &config.FetchConfig{AwesomeLists: []string{server.URL}}); err == nil {
+		t.Fatal("expected a source with no repository links to fail discovery")
+	}
+}
+
 func TestParseAwesomeMarkdownEdgeCases(t *testing.T) {
 	// Multiple links on one line
 	md := `- [a/b](https://github.com/a/b) and [c/d](https://github.com/c/d) - two tools`
@@ -59,6 +126,29 @@ func TestParseAwesomeMarkdownEdgeCases(t *testing.T) {
 	repos = ParseAwesomeMarkdown(md)
 	if len(repos) != 0 {
 		t.Fatalf("expected 0 repos for non-GitHub link, got %d", len(repos))
+	}
+}
+
+func TestParseAwesomeMarkdownCanonicalizesAndRejectsNonRepositoryPaths(t *testing.T) {
+	markdown := strings.Join([]string{
+		`- [fragment](https://github.com/owner/tool#readme) - fragment`,
+		`- [query](https://github.com/org/scanner?tab=readme-ov-file) - query`,
+		`- [title](https://github.com/dev/exploit-kit "Project home") - title`,
+		`- [tree](https://github.com/owner/tool/tree/main) - not a repository root`,
+		`- [bad owner](https://github.com/owner%2Fevil/tool) - encoded separator`,
+	}, "\n")
+	repos := ParseAwesomeMarkdown(markdown)
+	if len(repos) != 3 {
+		t.Fatalf("expected 3 canonical repository links, got %#v", repos)
+	}
+	want := []string{"owner/tool", "org/scanner", "dev/exploit-kit"}
+	for index, repo := range repos {
+		if repo.FullName != want[index] {
+			t.Errorf("repo %d: got %q, want %q", index, repo.FullName, want[index])
+		}
+		if repo.HTMLURL != "https://github.com/"+want[index] {
+			t.Errorf("repo %d: non-canonical URL %q", index, repo.HTMLURL)
+		}
 	}
 }
 
@@ -99,5 +189,15 @@ func TestIsLikelyEnglish(t *testing.T) {
 		if got != tt.expected {
 			t.Errorf("IsLikelyEnglish(%q) = %v, want %v", tt.input, got, tt.expected)
 		}
+	}
+}
+
+func TestGitHubSearchPrioritizesRecentlyUpdatedRepositories(t *testing.T) {
+	searchURL := githubSearchURL("security tools", 10, 2)
+	if !strings.Contains(searchURL, "sort=updated&order=desc") {
+		t.Fatalf("search does not prioritize recent projects: %s", searchURL)
+	}
+	if !strings.Contains(searchURL, "page=2") || !strings.Contains(searchURL, "topic%3Asecurity+tools") {
+		t.Fatalf("search URL lost query parameters: %s", searchURL)
 	}
 }
