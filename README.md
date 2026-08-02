@@ -1,7 +1,7 @@
 # HackyFeed
 
 [![CI](https://github.com/rainmana/hackyfeed/actions/workflows/ci.yml/badge.svg)](https://github.com/rainmana/hackyfeed/actions/workflows/ci.yml)
-[![Update & Deploy](https://github.com/rainmana/hackyfeed/actions/workflows/daily-update.yml/badge.svg)](https://github.com/rainmana/hackyfeed/actions/workflows/daily-update.yml)
+[![Update & Deploy](https://github.com/rainmana/hackyfeed/actions/workflows/pages.yml/badge.svg)](https://github.com/rainmana/hackyfeed/actions/workflows/pages.yml)
 [RSS feed](https://rainmana.github.io/hackyfeed/feed.xml)
 
 HackyFeed is a self-updating GitHub Pages catalog for discovering cybersecurity tools. It searches GitHub, summarizes new repositories through any OpenAI-compatible API, renders a Hugo site, and publishes a small, standards-friendly RSS feed.
@@ -213,7 +213,7 @@ This release repairs the original end-to-end pipeline and replaces the fragile g
 - Made explicit category-rule tables replace defaults, which prevents domain templates from accidentally inheriting cybersecurity matches.
 - Added a dedicated CI workflow for tests, vetting, catalog restoration, generation, and a production Hugo build.
 - Rebuilt the Pages workflow so pushes safely republish known state while scheduled and manual runs perform discovery and summarization.
-- Reactivated the scheduled workflow after GitHub's inactivity pause and added `main` pushes as a deterministic republish path.
+- Replaced the inactivity-disabled workflow identity, reactivated its schedule, and added `main` pushes as a deterministic republish path.
 - Pinned Hugo and every reusable GitHub Action to explicit versions or full commit SHAs.
 - Replaced secret-shaped example credentials with inert placeholders that do not trigger push-protection scanners.
 - Made the SQLite cache resumable but non-authoritative, with public and checked-in catalogs as durable state.
